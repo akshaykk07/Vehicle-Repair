@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "894152120351",
+    "project_id": "driving-de6b0",
+    "storage_bucket": "driving-de6b0.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:894152120351:android:ddf784b3f1dcfcbc3d9d2a",
+        "android_client_info": {
+          "package_name": "com.example.flutter_application_1"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUaw6Gog6DdIBtt6tAQ5c4YwHCs-9Ih3Q"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
