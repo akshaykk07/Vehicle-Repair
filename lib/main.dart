@@ -4,6 +4,7 @@ import 'package:flutter_application_1/Screens/admin/adminLogin.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Screens/admin/adminHome.dart';
+import 'Screens/admin/user.dart';
 import 'home.dart';
 
 void main() async {
