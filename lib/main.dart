@@ -3,8 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Screens/admin/adminLogin.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'Screens/admin/addNotification.dart';
 import 'Screens/admin/adminHome.dart';
-import 'Screens/admin/user.dart';
+import 'Screens/admin/adminMech.dart';
+import 'Screens/admin/adminUser.dart';
+import 'Screens/admin/mecanicList.dart';
+import 'Screens/admin/notification.dart';
+import 'Screens/admin/payment.dart';
+import 'Screens/admin/userList.dart';
+import 'Screens/user/userLogin.dart';
+import 'Screens/user/userSignup.dart';
 import 'home.dart';
 
 void main() async {
@@ -28,7 +36,7 @@ class MyApp extends StatelessWidget {
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             // useMaterial3: true,
           ),
-          home: AdminHome()),
+          home: UserSignup()),
       designSize: Size(390, 844),
     );
   }

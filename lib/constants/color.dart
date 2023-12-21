@@ -7,3 +7,4 @@ const customBlue = Color(0xff2357D9);
 const customGrey = Color(0xffE8F1FF);
 const customBalck = Color(0xff000000);
 const white = Color(0xffFFFFFF);
+const lightred=Color(0xffFF9F9D);

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Screens/admin/user.dart';
+import 'package:flutter_application_1/Screens/admin/userList.dart';
 import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+import 'mecanicList.dart';
 
 class AdminHome extends StatelessWidget {
   const AdminHome({super.key});
@@ -26,6 +28,7 @@ class AdminHome extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
               child: Container(
+                height: 50.h,
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(10).r, color: white),
                 child: TabBar(
@@ -54,11 +57,13 @@ class AdminHome extends StatelessWidget {
                 ),
               ),
             ),
-            SizedBox(height: 20.h,),
+            SizedBox(
+              height: 20.h,
+            ),
             const Expanded(
                 child: TabBarView(children: [
               Center(child: UserList()),
-              Center(child: Text("Mechanic"))
+              Center(child: MechanicList())
             ]))
           ]),
         ),

@@ -67,6 +67,7 @@ class UserTile extends StatelessWidget {
                         fontWeight: FontWeight.w400,
                         color: customBalck),
                     overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
                   ),
                 ],
               ),
