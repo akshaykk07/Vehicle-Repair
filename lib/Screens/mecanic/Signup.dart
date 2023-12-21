@@ -5,8 +5,8 @@ import 'package:flutter_application_1/widgets/customTextfield.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class UserSignup extends StatelessWidget {
-  UserSignup({super.key});
+class MechSignup extends StatelessWidget {
+  MechSignup({super.key});
 
   @override
   final username = TextEditingController();

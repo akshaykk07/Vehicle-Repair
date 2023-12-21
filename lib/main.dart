@@ -11,8 +11,11 @@ import 'Screens/admin/mecanicList.dart';
 import 'Screens/admin/notification.dart';
 import 'Screens/admin/payment.dart';
 import 'Screens/admin/userList.dart';
-import 'Screens/user/userLogin.dart';
-import 'Screens/user/userSignup.dart';
+import 'Screens/mecanic/AcceptList.dart';
+import 'Screens/mecanic/Home.dart';
+import 'Screens/mecanic/Login.dart';
+import 'Screens/mecanic/RequestList.dart';
+import 'Screens/mecanic/Signup.dart';
 import 'home.dart';
 
 void main() async {
@@ -36,7 +39,7 @@ class MyApp extends StatelessWidget {
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             // useMaterial3: true,
           ),
-          home: UserSignup()),
+          home: MechHome()),
       designSize: Size(390, 844),
     );
   }

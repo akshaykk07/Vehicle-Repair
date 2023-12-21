@@ -13,12 +13,16 @@ class AppText extends StatelessWidget {
   final FontWeight weight;
   final double size;
   final Color textcolor;
+
   @override
   Widget build(BuildContext context) {
     return Text(
       text,
       style: GoogleFonts.poppins(
-          fontSize: size, color: textcolor, fontWeight: weight),
+          fontSize: size, color: textcolor,
+          fontWeight: weight),
+      overflow: TextOverflow.ellipsis,
+      maxLines: 1,
     );
   }
 }
