@@ -1,0 +1,57 @@
+import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
+import '../../constants/color.dart';
+import '../../widgets/apptext.dart';
+import '../../widgets/ratingTale.dart';
+
+class Rating extends StatelessWidget {
+  const Rating({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+          leading: Padding(
+            padding: const EdgeInsets.only(left: 20).r,
+            child: const Icon(
+              Icons.arrow_back_ios,
+              color: customBalck,
+            ),
+          ),
+          backgroundColor: maincolor,
+          title: AppText(
+              text: "Rating",
+              weight: FontWeight.w400,
+              size: 20.sp,
+              textcolor: customBalck),
+          centerTitle: true),
+      body: Padding(
+        padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
+        child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          AppText(
+              text: "The rating given to you",
+              weight: FontWeight.w400,
+              size: 10.sp,
+              textcolor: Colors.grey),
+          Expanded(
+            child: Padding(
+              padding: const EdgeInsets.only(top: 10).r,
+              child: ListView.builder(itemBuilder: (context, index) {
+                return   RatingTale(
+                    image: "assets/men.png",
+                    name: "name",
+                    work: 'engine work',
+                    date: 'date',
+                    time: 'time',
+                    place: 'place');
+              },
+                itemCount: 10,
+              ),
+            ),
+          )
+        ]),
+      ),
+    );
+  }
+}

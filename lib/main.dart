@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Screens/admin/adminLogin.dart';
@@ -12,9 +14,13 @@ import 'Screens/admin/notification.dart';
 import 'Screens/admin/payment.dart';
 import 'Screens/admin/userList.dart';
 import 'Screens/mecanic/AcceptList.dart';
+import 'Screens/mecanic/EditProfile.dart';
 import 'Screens/mecanic/Home.dart';
 import 'Screens/mecanic/Login.dart';
+import 'Screens/mecanic/Profile.dart';
+import 'Screens/mecanic/Rating.dart';
 import 'Screens/mecanic/RequestList.dart';
+import 'Screens/mecanic/Service.dart';
 import 'Screens/mecanic/Signup.dart';
 import 'home.dart';
 
@@ -39,7 +45,7 @@ class MyApp extends StatelessWidget {
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             // useMaterial3: true,
           ),
-          home: MechHome()),
+          home: Services()),
       designSize: Size(390, 844),
     );
   }
