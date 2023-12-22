@@ -10,12 +10,14 @@ class CustomButton extends StatelessWidget {
     required this.textcolor,
     required this.click,
     this.height = 50,
+    this.textsize = 16,
   });
 
   final String btnname;
   final Color btntheam;
   final Color textcolor;
   final double height;
+  final double textsize;
   final void Function() click;
 
   @override
@@ -33,7 +35,7 @@ class CustomButton extends StatelessWidget {
           child: AppText(
               text: btnname,
               textcolor: textcolor,
-              size: 16.sp,
+              size: textsize.sp,
               weight: FontWeight.w700),
         ),
       ),

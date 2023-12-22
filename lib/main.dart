@@ -3,6 +3,7 @@ import 'dart:developer';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Screens/admin/adminLogin.dart';
+import 'package:flutter_application_1/Screens/mecanic/RequestScreen.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Screens/admin/addNotification.dart';
@@ -14,14 +15,18 @@ import 'Screens/admin/notification.dart';
 import 'Screens/admin/payment.dart';
 import 'Screens/admin/userList.dart';
 import 'Screens/mecanic/AcceptList.dart';
+import 'Screens/mecanic/AcceptScreen.dart';
 import 'Screens/mecanic/EditProfile.dart';
 import 'Screens/mecanic/Home.dart';
 import 'Screens/mecanic/Login.dart';
+import 'Screens/mecanic/NotificationScreen.dart';
 import 'Screens/mecanic/Profile.dart';
 import 'Screens/mecanic/Rating.dart';
+import 'Screens/mecanic/RejectScreen.dart';
 import 'Screens/mecanic/RequestList.dart';
 import 'Screens/mecanic/Service.dart';
 import 'Screens/mecanic/Signup.dart';
+import 'Screens/mecanic/demo.dart';
 import 'home.dart';
 
 void main() async {
@@ -45,7 +50,7 @@ class MyApp extends StatelessWidget {
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             // useMaterial3: true,
           ),
-          home: Services()),
+          home: AdminNotification()),
       designSize: Size(390, 844),
     );
   }
