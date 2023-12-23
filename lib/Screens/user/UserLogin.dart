@@ -5,8 +5,8 @@ import 'package:flutter_application_1/widgets/customTextfield.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-class MechLogin extends StatelessWidget {
-  MechLogin({super.key});
+class UserLogin extends StatelessWidget {
+  UserLogin({super.key});
 
   @override
   final username = TextEditingController();
@@ -21,7 +21,7 @@ class MechLogin extends StatelessWidget {
         padding: const EdgeInsets.only(left: 45, right: 45, top: 100).r,
         child: SingleChildScrollView(
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+          Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             Image.asset(
               "assets/logo.png",
               width: 140.w,
@@ -33,7 +33,7 @@ class MechLogin extends StatelessWidget {
             AppText(
                 text: "LOGIN",
                 weight: FontWeight.w700,
-                size: 23.sp,
+                size: 23,
                 textcolor: customBalck),
             SizedBox(
               height: 50.h,
@@ -43,7 +43,7 @@ class MechLogin extends StatelessWidget {
               child: AppText(
                   text: "Enter Username",
                   weight: FontWeight.w500,
-                  size: 16.sp,
+                  size: 16,
                   textcolor: customBalck),
             ),
             CustomTextField(
@@ -56,7 +56,7 @@ class MechLogin extends StatelessWidget {
               child: AppText(
                   text: "Enter Password",
                   weight: FontWeight.w500,
-                  size: 16.sp,
+                  size: 16,
                   textcolor: customBalck),
             ),
             CustomTextField(
@@ -76,7 +76,7 @@ class MechLogin extends StatelessWidget {
                   child: AppText(
                       text: "Forgot password ?",
                       weight: FontWeight.w400,
-                      size: 14.sp,
+                      size: 14,
                       textcolor: customBalck),
                 )),
             SizedBox(
@@ -99,7 +99,7 @@ class MechLogin extends StatelessWidget {
                 AppText(
                     text: "Do you have account ?",
                     weight: FontWeight.w400,
-                    size: 13.sp,
+                    size: 13,
                     textcolor: customBalck),
                 SizedBox(
                   width: 10.w,
@@ -111,7 +111,7 @@ class MechLogin extends StatelessWidget {
                   child: AppText(
                       text: "Sign up",
                       weight: FontWeight.w400,
-                      size: 13.sp,
+                      size: 13,
                       textcolor: customBlue),
                 )
               ],

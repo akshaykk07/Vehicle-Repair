@@ -19,7 +19,7 @@ import 'Screens/mecanic/AcceptScreen.dart';
 import 'Screens/mecanic/EditProfile.dart';
 import 'Screens/mecanic/Home.dart';
 import 'Screens/mecanic/Login.dart';
-import 'Screens/mecanic/NotificationScreen.dart';
+import 'Screens/mecanic/AdminNotification.dart';
 import 'Screens/mecanic/Profile.dart';
 import 'Screens/mecanic/Rating.dart';
 import 'Screens/mecanic/RejectScreen.dart';
@@ -27,6 +27,12 @@ import 'Screens/mecanic/RequestList.dart';
 import 'Screens/mecanic/Service.dart';
 import 'Screens/mecanic/Signup.dart';
 import 'Screens/mecanic/demo.dart';
+import 'Screens/user/UserHome.dart';
+import 'Screens/user/Paymentsuccess.dart';
+import 'Screens/user/UserLogin.dart';
+import 'Screens/user/UserNotification.dart';
+import 'Screens/user/UserRequest.dart';
+import 'Screens/user/UserSignup.dart';
 import 'home.dart';
 
 void main() async {
@@ -50,7 +56,7 @@ class MyApp extends StatelessWidget {
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             // useMaterial3: true,
           ),
-          home: AdminNotification()),
+          home: UserHome()),
       designSize: Size(390, 844),
     );
   }
