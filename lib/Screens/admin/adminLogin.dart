@@ -10,59 +10,58 @@ class AdminLogin extends StatelessWidget {
 
   @override
   final username = TextEditingController();
-
   final password = TextEditingController();
 
   Widget build(BuildContext context) {
     return Scaffold(
-     // resizeToAvoidBottomInset: true,
       backgroundColor: maincolor,
       body: Padding(
-        padding: const EdgeInsets.only(left: 45, right: 45, top: 100).r,
+        padding: const EdgeInsets.only(left: 45, right: 45, top: 10).r,
         child: SingleChildScrollView(
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Image.asset(
-              "assets/logo.png",
-              width: 140.w,
-              height: 140.h,
+              Column(crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+            Padding(
+              padding: const EdgeInsets.only(top: 80, bottom: 50).r,
+              child: Image.asset(
+                "assets/logo.png",
+                width: 140.w,
+                height: 140.h,
+              ),
             ),
-            SizedBox(
-              height: 50.h,
-            ),
-            AppText(
+            const AppText(
                 text: "LOGIN",
                 weight: FontWeight.w700,
-                size: 23.sp,
+                size: 23,
                 textcolor: customBalck),
             SizedBox(
               height: 50.h,
             ),
-            Align(
+            const Align(
               alignment: Alignment.bottomLeft,
               child: AppText(
                   text: "Enter Username",
                   weight: FontWeight.w500,
-                  size: 16.sp,
+                  size: 16,
                   textcolor: customBalck),
             ),
             CustomTextField(
                 hint: "username",
-                controller: username,
+                controller: username, // controller...
                 validator: (value) {}),
             SizedBox(
-              height: 30.h,
+              height: 20.h,
             ),
-            Align(
+            const Align(
               alignment: Alignment.bottomLeft,
               child: AppText(
                   text: "Enter Password",
                   weight: FontWeight.w500,
-                  size: 16.sp,
+                  size: 16,
                   textcolor: customBalck),
             ),
             CustomTextField(
-                hint: "password",
+                hint: "password", // controller...
                 controller: password,
                 obscure: true,
                 validator: (value) {}),
@@ -75,7 +74,9 @@ class AdminLogin extends StatelessWidget {
                   btnname: "LOGIN",
                   btntheam: customBlue,
                   textcolor: white,
-                  click: () {}),
+                  click: () {
+                    //Login Function.....
+                  }),
             )
           ]),
         ),

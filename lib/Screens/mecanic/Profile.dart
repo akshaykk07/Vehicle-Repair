@@ -58,8 +58,8 @@ class Profile extends StatelessWidget {
         child: SingleChildScrollView(
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            const CircleAvatar(
-              radius: 50,
+             CircleAvatar(
+              radius: 50.r,
               backgroundImage: AssetImage(
                 "assets/men.png",
               ),

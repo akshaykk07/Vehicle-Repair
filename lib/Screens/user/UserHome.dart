@@ -3,6 +3,8 @@ import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
+import 'UserNotification.dart';
+import 'UserProfile.dart';
 import 'UserRequest.dart';
 import 'UsermechList.dart';
 
@@ -24,9 +26,18 @@ class UserHome extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(left: 20, right: 20, top: 20).r,
               child: Row(children: [
-                CircleAvatar(
-                  radius: 30.r,
-                  backgroundImage: const AssetImage("assets/admin.png"),
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute( // go to user profile screen..
+                          builder: (context) =>  UserProfile(),
+                        ));
+                  },
+                  child: CircleAvatar(
+                    radius: 30.r,
+                    backgroundImage: const AssetImage("assets/admin.png"),
+                  ),
                 ),
                 Flexible(
                   child: Padding(
@@ -56,14 +67,24 @@ class UserHome extends StatelessWidget {
                         )),
                   ),
                 ),
-                Icon(
-                  Icons.notifications,
-                  color: Colors.yellow[800],
+                InkWell(
+                  onTap: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          // got to notification screen.....
+                          builder: (context) => const UserNotification(),
+                        ));
+                  },
+                  child: Icon(
+                    Icons.notifications,
+                    color: Colors.yellow[800],
+                  ),
                 )
               ]),
             ),
           ),
-           const Expanded(
+          const Expanded(
               child: TabBarView(children: [UserMecList(), UserRequest()])),
           Padding(
             padding: const EdgeInsets.only(left: 45, right: 45, bottom: 40).r,

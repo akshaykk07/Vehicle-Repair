@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../widgets/requestTale.dart';
+import 'RequestScreen.dart';
 
 class RequestsList extends StatelessWidget {
   const RequestsList({super.key});
@@ -8,17 +9,25 @@ class RequestsList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-      // Scaffold(
-      //   body:
+        // Scaffold(
+        //   body:
         ListView.builder(
       itemBuilder: (context, index) {
-        return const RequestTale(
-            image: "assets/men.png",
-            name: "name",
-            issue: "Fuel leaking ",
-            date: 'date',
-            time: "time",
-            place: "kozhikode ");
+        return RequestTale(
+          image: "assets/men.png",
+          name: "name",
+          issue: "Fuel leaking ",
+          date: 'date',
+          time: "time",
+          place: "kozhikode ",
+          click: () {
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => const RequestScreen(),
+                ));
+          },
+        );
       },
       itemCount: 10,
     );

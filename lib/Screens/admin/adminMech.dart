@@ -40,7 +40,9 @@ class AdminMechanic extends StatelessWidget {
                           Align(
                               alignment: Alignment.centerLeft,
                               child: InkWell(
-                                  onTap: () {},
+                                  onTap: () {
+                                    Navigator.pop(context);
+                                  },
                                   child: const Icon(
                                     Icons.arrow_back_ios,
                                     color: customBalck,
@@ -58,10 +60,10 @@ class AdminMechanic extends StatelessWidget {
                           SizedBox(
                             height: 10.h,
                           ),
-                          AppText(
+                          const AppText(
                               text: "Name",
                               weight: FontWeight.w600,
-                              size: 18.sp,
+                              size: 18,
                               textcolor: customBalck),
                           SizedBox(
                             height: 20.h,
@@ -73,7 +75,8 @@ class AdminMechanic extends StatelessWidget {
                             direction: Axis.horizontal,
                             allowHalfRating: true,
                             itemCount: 5,
-                            itemPadding: const EdgeInsets.symmetric(horizontal: 4.0),
+                            itemPadding:
+                                const EdgeInsets.symmetric(horizontal: 4.0),
                             itemBuilder: (context, _) => const Icon(
                               Icons.star,
                               color: Colors.amber,
@@ -82,10 +85,10 @@ class AdminMechanic extends StatelessWidget {
                               print(rating);
                             },
                           ),
-                          AppText(
+                          const AppText(
                               text: "Location",
                               weight: FontWeight.w600,
-                              size: 18.sp,
+                              size: 18,
                               textcolor: customBalck),
                         ],
                       ),
@@ -96,12 +99,12 @@ class AdminMechanic extends StatelessWidget {
                         ).r,
                         child: Column(
                           children: [
-                            Align(
+                            const Align(
                                 alignment: Alignment.centerLeft,
                                 child: AppText(
                                     text: "Mechanic Username",
                                     weight: FontWeight.w500,
-                                    size: 16.sp,
+                                    size: 16,
                                     textcolor: customBalck)),
                             CustomTextField(
                               hint: "name",
@@ -110,15 +113,12 @@ class AdminMechanic extends StatelessWidget {
                               fillcolor: lightBlue,
                               readonly: true,
                             ),
-                            SizedBox(
-                              height: 20.h,
-                            ),
-                            Align(
+                            const Align(
                                 alignment: Alignment.centerLeft,
                                 child: AppText(
                                     text: "Phone number",
                                     weight: FontWeight.w500,
-                                    size: 16.sp,
+                                    size: 16,
                                     textcolor: customBalck)),
                             CustomTextField(
                               hint: "phone number",
@@ -127,15 +127,12 @@ class AdminMechanic extends StatelessWidget {
                               fillcolor: lightBlue,
                               readonly: true,
                             ),
-                            SizedBox(
-                              height: 20.h,
-                            ),
-                            Align(
+                            const Align(
                                 alignment: Alignment.centerLeft,
                                 child: AppText(
                                     text: "email adders",
                                     weight: FontWeight.w500,
-                                    size: 16.sp,
+                                    size: 16,
                                     textcolor: customBalck)),
                             CustomTextField(
                               hint: "email",
@@ -144,15 +141,12 @@ class AdminMechanic extends StatelessWidget {
                               fillcolor: lightBlue,
                               readonly: true,
                             ),
-                            SizedBox(
-                              height: 20.h,
-                            ),
-                            Align(
+                            const Align(
                                 alignment: Alignment.centerLeft,
                                 child: AppText(
                                     text: "work experience",
                                     weight: FontWeight.w500,
-                                    size: 16.sp,
+                                    size: 16,
                                     textcolor: customBalck)),
                             CustomTextField(
                               hint: "work experience",
@@ -161,15 +155,12 @@ class AdminMechanic extends StatelessWidget {
                               fillcolor: lightBlue,
                               readonly: true,
                             ),
-                            SizedBox(
-                              height: 20.h,
-                            ),
-                            Align(
+                            const Align(
                                 alignment: Alignment.centerLeft,
                                 child: AppText(
                                     text: "workshop name",
                                     weight: FontWeight.w500,
-                                    size: 16.sp,
+                                    size: 16,
                                     textcolor: customBalck)),
                             CustomTextField(
                               hint: "workshop name",
@@ -178,15 +169,12 @@ class AdminMechanic extends StatelessWidget {
                               fillcolor: lightBlue,
                               readonly: true,
                             ),
-                            SizedBox(
-                              height: 20.h,
-                            ),
-                            Align(
+                            const Align(
                                 alignment: Alignment.centerLeft,
                                 child: AppText(
                                     text: "your location",
                                     weight: FontWeight.w500,
-                                    size: 16.sp,
+                                    size: 16,
                                     textcolor: customBalck)),
                             CustomTextField(
                               hint: "your location",

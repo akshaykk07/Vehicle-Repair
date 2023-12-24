@@ -3,12 +3,13 @@ import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-
 import 'AcceptList.dart';
+import 'AdminNotification.dart';
+import 'Profile.dart';
 import 'RequestList.dart';
 
-class MechHome extends StatelessWidget {
-  const MechHome({super.key});
+class MechMain extends StatelessWidget {
+  const MechMain({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -16,19 +17,37 @@ class MechHome extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
-          title: Image.asset(
-            "assets/men.png",
-            height: 60.h,
-            width: 60.w,
-            fit: BoxFit.fill,
+          title: InkWell(
+            onTap: () {
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => Profile(),
+                  ));
+            },
+            child: Image.asset(
+              "assets/men.png",
+              height: 60.h,
+              width: 60.w,
+              fit: BoxFit.fill,
+            ),
           ),
           actions: [
             Padding(
               padding: const EdgeInsets.only(right: 20).r,
-              child: Icon(
-                Icons.notifications,
-                color: Colors.yellow[700],
-                size: 30,
+              child: InkWell(
+                onTap: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => AdminNotification(),
+                      ));
+                },
+                child: Icon(
+                  Icons.notifications,
+                  color: Colors.yellow[700],
+                  size: 30,
+                ),
               ),
             )
           ],
@@ -36,8 +55,7 @@ class MechHome extends StatelessWidget {
         body: Padding(
           padding: const EdgeInsets.only(left: 30, right: 30, top: 30).r,
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Padding(
               padding: const EdgeInsets.only(top: 20, left: 10, right: 10),
               child: Container(
@@ -46,22 +64,24 @@ class MechHome extends StatelessWidget {
                     borderRadius: BorderRadius.circular(10).r,
                     color: lightBlue),
                 child: TabBar(
-                  tabs: [
+                  // Tab Bar...........
+                  tabs: const [
                     Tab(
                         child: AppText(
                             text: "Requests",
                             weight: FontWeight.w400,
-                            size: 14.sp,
+                            size: 14,
                             textcolor: customBalck)),
                     Tab(
                         child: AppText(
                             text: "Accepted",
                             weight: FontWeight.w400,
-                            size: 14.sp,
+                            size: 14,
                             textcolor: customBalck)),
                   ],
                   indicator: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10).r),
+                      borderRadius:
+                          BorderRadius.all(const Radius.circular(10).r),
                       // Creates border
                       color: maincolor),
                   dividerColor: Colors.transparent,
@@ -76,6 +96,7 @@ class MechHome extends StatelessWidget {
             ),
             const Expanded(
                 child: TabBarView(children: [
+              // Tab bar View.......
               Center(child: RequestsList()),
               Center(child: AcceptedList())
             ]))

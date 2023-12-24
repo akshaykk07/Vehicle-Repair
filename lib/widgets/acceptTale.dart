@@ -50,7 +50,7 @@ class AcceptTale extends StatelessWidget {
                   AppText(
                       text: name,
                       weight: FontWeight.w400,
-                      size: 14.sp,
+                      size: 14,
                       textcolor: customBalck),
                 ],
               ),
@@ -58,29 +58,29 @@ class AcceptTale extends StatelessWidget {
             Expanded(
               child: SizedBox(
                 child: Padding(
-                  padding: const EdgeInsets.only(left: 2, right: 2),
+                  padding: const EdgeInsets.only(left: 2, right: 2).r,
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: [
                       AppText(
                           text: issue,
                           weight: FontWeight.w400,
-                          size: 14.sp,
+                          size: 14,
                           textcolor: customBalck),
                       AppText(
                           text: date,
                           weight: FontWeight.w400,
-                          size: 14.sp,
+                          size: 14,
                           textcolor: customBalck),
                       AppText(
                           text: time,
                           weight: FontWeight.w400,
-                          size: 14.sp,
+                          size: 14,
                           textcolor: customBalck),
                       AppText(
                           text: place,
                           weight: FontWeight.w400,
-                          size: 14.sp,
+                          size: 14,
                           textcolor: customBalck),
                     ],
                   ),
@@ -99,7 +99,7 @@ class AcceptTale extends StatelessWidget {
                           ? "Payment success"
                           : "Payment pending",
                       weight: FontWeight.w400,
-                      size: 12.sp,
+                      size: 12,
                       textcolor: white)),
             )
           ]),

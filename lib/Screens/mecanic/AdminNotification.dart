@@ -13,7 +13,7 @@ class AdminNotification extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
           leading: Padding(
-            padding: const EdgeInsets.only(left: 20).r,
+            padding: const EdgeInsets.only(left: 10).r,
             child: InkWell(
               onTap: () {
                 Navigator.pop(context);

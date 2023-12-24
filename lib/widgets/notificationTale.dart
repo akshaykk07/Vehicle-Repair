@@ -20,7 +20,7 @@ class NotificationTale extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(bottom: 10).r,
       child: Container(
-        height: 120.h,
+        height: 130.h,
         width: double.infinity,
         color: white,
         child: Padding(
@@ -32,7 +32,7 @@ class NotificationTale extends StatelessWidget {
                 AppText(
                     text: heading,
                     weight: FontWeight.w500,
-                    size: 16.sp,
+                    size: 16,
                     textcolor: customBalck),
                 Text(
                   contents,

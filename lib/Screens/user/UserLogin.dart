@@ -5,6 +5,8 @@ import 'package:flutter_application_1/widgets/customTextfield.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'UserSignup.dart';
+
 class UserLogin extends StatelessWidget {
   UserLogin({super.key});
 
@@ -30,7 +32,7 @@ class UserLogin extends StatelessWidget {
             SizedBox(
               height: 50.h,
             ),
-            AppText(
+            const AppText(
                 text: "LOGIN",
                 weight: FontWeight.w700,
                 size: 23,
@@ -38,7 +40,7 @@ class UserLogin extends StatelessWidget {
             SizedBox(
               height: 50.h,
             ),
-            Align(
+            const Align(
               alignment: Alignment.bottomLeft,
               child: AppText(
                   text: "Enter Username",
@@ -51,7 +53,7 @@ class UserLogin extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            Align(
+            const Align(
               alignment: Alignment.bottomLeft,
               child: AppText(
                   text: "Enter Password",
@@ -73,7 +75,7 @@ class UserLogin extends StatelessWidget {
                   onTap: () {
                     // Forgot password......................
                   },
-                  child: AppText(
+                  child: const AppText(
                       text: "Forgot password ?",
                       weight: FontWeight.w400,
                       size: 14,
@@ -96,7 +98,7 @@ class UserLogin extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppText(
+                const AppText(
                     text: "Do you have account ?",
                     weight: FontWeight.w400,
                     size: 13,
@@ -106,9 +108,9 @@ class UserLogin extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    // SignUp ..................................
+                    Navigator.push(context, MaterialPageRoute(builder: (context) => UserSignup(),));// SignUp ..................................
                   },
-                  child: AppText(
+                  child: const AppText(
                       text: "Sign up",
                       weight: FontWeight.w400,
                       size: 13,

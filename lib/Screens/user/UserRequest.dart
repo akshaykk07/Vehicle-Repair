@@ -10,17 +10,21 @@ class UserRequest extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return
-      // Scaffold(
-      // body:
-      Padding(
-        padding: const EdgeInsets.only(left: 34, right: 34),
-        child: ListView.builder(itemBuilder: (context, index) {
-          return const UserRequestTale(name: "name", date: "date", time: "time", issue: "Fuel leaking");
-        },
-        itemCount: 10,)
-      );
+        // Scaffold(
+        // body:
+        Padding(
+            padding: const EdgeInsets.only(left: 34, right: 34),
+            child: ListView.builder(
+              itemBuilder: (context, index) {
+                return const UserRequestTale(
+                    name: "name",
+                    date: "date",
+                    time: "time",
+                    issue: "Fuel leaking");
+              },
+              itemCount: 10,
+            ));
 
     // );
   }
 }
-

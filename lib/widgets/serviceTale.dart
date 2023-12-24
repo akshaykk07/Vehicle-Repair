@@ -29,7 +29,7 @@ class ServiceTale extends StatelessWidget {
               child: AppText(
                   text: title,
                   weight: FontWeight.w400,
-                  size: 13.sp,
+                  size: 13,
                   textcolor: customBalck),
             ),
             InkWell(

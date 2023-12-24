@@ -49,13 +49,11 @@ class UserSignup extends StatelessWidget {
                   size: 16,
                   textcolor: customBalck),
             ),
-            CustomTextField(
+            CustomTextField( //Custom Textfield..............
                 hint: "Enter Username",
                 controller: username,
                 validator: (value) {}),
-            SizedBox(
-              height: 10.h,
-            ),
+
             const Align(
               alignment: Alignment.bottomLeft,
               child: AppText(
@@ -69,9 +67,7 @@ class UserSignup extends StatelessWidget {
                 controller: phone,
                 kebordtype: TextInputType.number,
                 validator: (value) {}),
-            SizedBox(
-              height: 10.h,
-            ),
+
             const Align(
               alignment: Alignment.bottomLeft,
               child: AppText(
@@ -85,9 +81,7 @@ class UserSignup extends StatelessWidget {
                 controller: email,
                 kebordtype: TextInputType.emailAddress,
                 validator: (value) {}),
-            SizedBox(
-              height: 10.h,
-            ),
+
             const Align(
               alignment: Alignment.bottomLeft,
               child: AppText(
@@ -105,8 +99,8 @@ class UserSignup extends StatelessWidget {
             ),
             Padding(
               padding: const EdgeInsets.only(left: 50, right: 50, bottom: 30).r,
-              child: CustomButton(
-                  btnname: "LOGIN",
+              child: CustomButton( //sign up button.......
+                  btnname: "SIGN UP",
                   btntheam: customBlue,
                   textcolor: white,
                   click: () {}),

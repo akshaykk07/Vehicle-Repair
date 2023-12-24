@@ -33,7 +33,11 @@ class NotificationScreen extends StatelessWidget {
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {
-            Navigator.push(context, MaterialPageRoute(builder: (context) => AddNotification(),));
+            Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (context) => AddNotification(),
+                ));
           },
           backgroundColor: white,
           shape: const CircleBorder(),

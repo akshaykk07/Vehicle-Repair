@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_application_1/widgets/mecahnicTale.dart';
 
+import 'adminMech.dart';
+
 class MechanicList extends StatelessWidget {
   const MechanicList({super.key});
 
@@ -11,16 +13,21 @@ class MechanicList extends StatelessWidget {
         backgroundColor: lightBlue,
         body: ListView.builder(
           itemBuilder: (context, index) {
-            return  const MechanicTile(
-                image: "assets/pro.png",
-                name: "name",
-                mobile: "mobile",
-                service: "service"
+            return MechanicTile(
+              image: "assets/pro.png",
+              name: "name",
+              mobile: "mobile",
+              service: "service",
+              click: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => AdminMechanic(),
+                    ));
+              },
             );
           },
           itemCount: 10,
         ));
   }
 }
-
-

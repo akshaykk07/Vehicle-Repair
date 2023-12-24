@@ -28,16 +28,17 @@ class AddNotification extends StatelessWidget {
       ),
       backgroundColor: lightBlue,
       body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30, top: 50).r,
+        padding: const EdgeInsets.only(left: 30, right: 30, top: 20).r,
         child: SingleChildScrollView(
           child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Align(
+              Column(crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+            const Align(
                 alignment: Alignment.centerLeft,
                 child: AppText(
                     text: "Enter Matter",
                     weight: FontWeight.w500,
-                    size: 16.sp,
+                    size: 16,
                     textcolor: customBalck)),
             CustomTextField(
               hint: "enter matter",
@@ -46,14 +47,14 @@ class AddNotification extends StatelessWidget {
               fillcolor: white,
             ),
             SizedBox(
-              height: 50.h,
+              height: 30.h,
             ),
-            Align(
+            const Align(
                 alignment: Alignment.centerLeft,
                 child: AppText(
                     text: "Enter Content",
                     weight: FontWeight.w500,
-                    size: 16.sp,
+                    size: 16,
                     textcolor: customBalck)),
             Padding(
               padding: const EdgeInsets.only(top: 10).r,
@@ -74,14 +75,12 @@ class AddNotification extends StatelessWidget {
               ),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 50, right: 50, top: 60).r,
+              padding: const EdgeInsets.only(left: 50, right: 50, top: 60,bottom: 30).r,
               child: CustomButton(
                   btnname: "Submit",
                   btntheam: customBlue,
                   textcolor: white,
-                  click: () {
-
-                  }),
+                  click: () {}),
             )
           ]),
         ),

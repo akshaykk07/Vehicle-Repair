@@ -71,10 +71,10 @@ class Services extends StatelessWidget {
                 child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      AppText(
+                      const AppText(
                           text: "Add service",
                           weight: FontWeight.w500,
-                          size: 20.sp,
+                          size: 20,
                           textcolor: customBalck),
                       Padding(
                         padding: const EdgeInsets.only(top: 40).r,
@@ -85,7 +85,8 @@ class Services extends StatelessWidget {
                       ),
                       Padding(
                         padding:
-                            const EdgeInsets.only(left: 30, right: 30, top: 40).r,
+                            const EdgeInsets.only(left: 30, right: 30, top: 40)
+                                .r,
                         child: CustomButton(
                             btnname: "Add",
                             btntheam: customBlue,

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/mecanicStatusTale.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'ServiceScreen.dart';
+
 class UserMecList extends StatelessWidget {
   const UserMecList({super.key});
 
@@ -12,13 +14,21 @@ class UserMecList extends StatelessWidget {
           padding: const EdgeInsets.only(left: 34, right: 34).r,
           child: ListView.builder(
             itemBuilder: (context, index) {
-              return const MechanicStatusTale(
-                  image: "assets/men3.png",
-                  name: "name",
-                  experience: "2+ year experience",
-                  work: "Fuel leaking",
-                  status:
-                      true); // if status is true is mechanic available /false not available......
+              return MechanicStatusTale(
+                image: "assets/men3.png",
+                name: "name",
+                experience: "2+ year experience",
+                work: "Fuel leaking",
+                status: true,
+                // if status is true is mechanic available /false not available......
+                click: () {
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ServiceScreen(),
+                      ));
+                },
+              );
             },
             itemCount: 10,
           )),

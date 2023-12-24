@@ -8,10 +8,10 @@ class CustomTextField extends StatelessWidget {
     required this.hint,
     this.kebordtype = TextInputType.text,
     required this.controller,
-   required this.validator,
+    required this.validator,
     this.obscure = false,
     this.fillcolor = white,
-    this.readonly=false,
+    this.readonly = false,
   });
 
   final String hint;
@@ -25,30 +25,32 @@ class CustomTextField extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.only(top: 8,bottom: 15).r,
-      child: SizedBox(
-        height: 50.h,
-        child: TextFormField(
-          controller: controller,
-          validator: validator,
-          obscureText: obscure,
-          readOnly: readonly,
-          decoration: InputDecoration(
-              fillColor: fillcolor,
-              filled: true,
-              hintText: hint,
-              contentPadding:
-                  EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
-              focusedBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: customGrey),
-                  borderRadius: BorderRadius.circular(8).r),
-              enabledBorder: OutlineInputBorder(
-                  borderSide: const BorderSide(color: customGrey),
-                  borderRadius: BorderRadius.circular(8).r),
-              border: const OutlineInputBorder(
-                  borderSide: BorderSide(color: customGrey))),
-        ),
-      ),
+      padding: const EdgeInsets.only(top: 8, bottom: 15).r,
+      child:
+          SizedBox(
+            height: 50.h,
+            child:
+          TextFormField(
+                  controller: controller,
+                  validator: validator,
+                  obscureText: obscure,
+                  readOnly: readonly,
+                  decoration: InputDecoration(
+            fillColor: fillcolor,
+            filled: true,
+            hintText: hint,
+            contentPadding:
+                EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
+            focusedBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: customGrey),
+                borderRadius: BorderRadius.circular(8).r),
+            enabledBorder: OutlineInputBorder(
+                borderSide: const BorderSide(color: customGrey),
+                borderRadius: BorderRadius.circular(8).r),
+            border: const OutlineInputBorder(
+                borderSide: BorderSide(color: customGrey))),
+                ),
+       ),
     );
   }
 }

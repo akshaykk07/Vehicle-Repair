@@ -5,17 +5,17 @@ import 'package:flutter_application_1/widgets/customTextfield.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'Signup.dart';
+
 class MechLogin extends StatelessWidget {
   MechLogin({super.key});
 
   @override
   final username = TextEditingController();
-
   final password = TextEditingController();
 
   Widget build(BuildContext context) {
     return Scaffold(
-      // resizeToAvoidBottomInset: true,
       backgroundColor: maincolor,
       body: Padding(
         padding: const EdgeInsets.only(left: 45, right: 45, top: 100).r,
@@ -30,20 +30,20 @@ class MechLogin extends StatelessWidget {
             SizedBox(
               height: 50.h,
             ),
-            AppText(
+            const AppText(
                 text: "LOGIN",
                 weight: FontWeight.w700,
-                size: 23.sp,
+                size: 23,
                 textcolor: customBalck),
             SizedBox(
               height: 50.h,
             ),
-            Align(
+            const Align(
               alignment: Alignment.bottomLeft,
               child: AppText(
                   text: "Enter Username",
                   weight: FontWeight.w500,
-                  size: 16.sp,
+                  size: 16,
                   textcolor: customBalck),
             ),
             CustomTextField(
@@ -51,12 +51,12 @@ class MechLogin extends StatelessWidget {
             SizedBox(
               height: 10.h,
             ),
-            Align(
+            const Align(
               alignment: Alignment.bottomLeft,
               child: AppText(
                   text: "Enter Password",
                   weight: FontWeight.w500,
-                  size: 16.sp,
+                  size: 16,
                   textcolor: customBalck),
             ),
             CustomTextField(
@@ -73,10 +73,10 @@ class MechLogin extends StatelessWidget {
                   onTap: () {
                     // Forgot password......................
                   },
-                  child: AppText(
+                  child: const AppText(
                       text: "Forgot password ?",
                       weight: FontWeight.w400,
-                      size: 14.sp,
+                      size: 14,
                       textcolor: customBalck),
                 )),
             SizedBox(
@@ -96,22 +96,26 @@ class MechLogin extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                AppText(
+                const AppText(
                     text: "Do you have account ?",
                     weight: FontWeight.w400,
-                    size: 13.sp,
+                    size: 13,
                     textcolor: customBalck),
                 SizedBox(
                   width: 10.w,
                 ),
                 InkWell(
                   onTap: () {
-                    // SignUp ..................................
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MechSignup(),// SignUp .......
+                        ));
                   },
-                  child: AppText(
+                  child: const AppText(
                       text: "Sign up",
                       weight: FontWeight.w400,
-                      size: 13.sp,
+                      size: 13,
                       textcolor: customBlue),
                 )
               ],

@@ -42,7 +42,7 @@ class _RatingTaleState extends State<RatingTale> {
           color: maincolor,
         ),
         child: Padding(
-          padding: const EdgeInsets.only(left: 10,right: 10).r,
+          padding: const EdgeInsets.only(left: 10, right: 10).r,
           child: Row(children: [
             SizedBox(
               width: 100.h,
@@ -50,74 +50,78 @@ class _RatingTaleState extends State<RatingTale> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   CircleAvatar(
-                    radius: 35,
+                    radius: 35.r,
                     backgroundImage: AssetImage(widget.image),
                   ),
                   AppText(
                       text: widget.name,
                       weight: FontWeight.w400,
-                      size: 16.sp,
+                      size: 16,
                       textcolor: customBalck)
                 ],
               ),
             ),
             SizedBox(
               width: 140,
-              child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                AppText(
-                    text: widget.work,
-                    weight: FontWeight.w400,
-                    size: 16.sp,
-                    textcolor: customBalck),
-                AppText(
-                    text: widget.date,
-                    weight: FontWeight.w400,
-                    size: 16.sp,
-                    textcolor: customBalck),
-                AppText(
-                    text: widget.time,
-                    weight: FontWeight.w400,
-                    size: 16.sp,
-                    textcolor: customBalck),
-                AppText(
-                    text: widget.place,
-                    weight: FontWeight.w400,
-                    size: 16.sp,
-                    textcolor: customBalck),
-              ]),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AppText(
+                        text: widget.work,
+                        weight: FontWeight.w400,
+                        size: 16,
+                        textcolor: customBalck),
+                    AppText(
+                        text: widget.date,
+                        weight: FontWeight.w400,
+                        size: 16,
+                        textcolor: customBalck),
+                    AppText(
+                        text: widget.time,
+                        weight: FontWeight.w400,
+                        size: 16,
+                        textcolor: customBalck),
+                    AppText(
+                        text: widget.place,
+                        weight: FontWeight.w400,
+                        size: 16,
+                        textcolor: customBalck),
+                  ]),
             ),
             Expanded(
                 child: SizedBox(
-              child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-                AppText(
-                    text: "Rating",
-                    weight: FontWeight.w400,
-                    size: 10.sp,
-                    textcolor: customBalck),
-                RatingBar.builder(
-                  itemSize: 11,
-                  initialRating: 3,
-                  minRating: 1,
-                  direction: Axis.horizontal,
-                  allowHalfRating: true,
-                  itemCount: 5,
-                  itemPadding: EdgeInsets.symmetric(horizontal: 1.0.w),
-                  itemBuilder: (context, _) => const Icon(
-                    Icons.star,
-                    color: Colors.amber,
-                  ),
-                  onRatingUpdate: (rating) {
-                    setState(() {
-                      rate = rating;
-                    });
-                  },
-                ),
-                AppText(
-                    text: "${rate.toStringAsFixed(0)}/5",
-                    weight: FontWeight.w600,
-                    size: 11.sp,
-                    textcolor: customBalck),
-              ]),
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    const AppText(
+                        text: "Rating",
+                        weight: FontWeight.w400,
+                        size: 10,
+                        textcolor: customBalck),
+                    RatingBar.builder(
+                      itemSize: 11,
+                      initialRating: 3,
+                      minRating: 1,
+                      direction: Axis.horizontal,
+                      allowHalfRating: true,
+                      itemCount: 5,
+                      itemPadding: EdgeInsets.symmetric(horizontal: 1.0.w),
+                      itemBuilder: (context, _) => const Icon(
+                        Icons.star,
+                        color: Colors.amber,
+                      ),
+                      onRatingUpdate: (rating) {
+                        setState(() {
+                          rate = rating;
+                        });
+                      },
+                    ),
+                    AppText(
+                        text: "${rate.toStringAsFixed(0)}/5",
+                        weight: FontWeight.w600,
+                        size: 11,
+                        textcolor: customBalck),
+                  ]),
             ))
           ]),
         ),

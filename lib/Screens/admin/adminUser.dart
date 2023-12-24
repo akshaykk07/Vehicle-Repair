@@ -35,7 +35,10 @@ class AdminUser extends StatelessWidget {
                         Align(
                             alignment: Alignment.centerLeft,
                             child: InkWell(
-                                onTap: () {},
+                                onTap: () {
+                                  Navigator.pop(context);
+
+                                },
                                 child: const Icon(
                                   Icons.arrow_back_ios,
                                   color: customBalck,
@@ -50,16 +53,18 @@ class AdminUser extends StatelessWidget {
                             fit: BoxFit.fill,
                           ),
                         ),
-                        SizedBox(height: 10.h,),
-                        AppText(
+                        SizedBox(
+                          height: 10.h,
+                        ),
+                        const AppText(
                             text: "Name",
                             weight: FontWeight.w600,
-                            size: 18.sp,
+                            size: 18,
                             textcolor: customBalck),
-                        AppText(
+                        const AppText(
                             text: "Location",
                             weight: FontWeight.w600,
-                            size: 18.sp,
+                            size: 18,
                             textcolor: customBalck),
                       ],
                     ),
@@ -67,12 +72,12 @@ class AdminUser extends StatelessWidget {
                       padding: const EdgeInsets.only(bottom: 30).r,
                       child: Column(
                         children: [
-                          Align(
+                          const Align(
                               alignment: Alignment.centerLeft,
                               child: AppText(
                                   text: "Username",
                                   weight: FontWeight.w500,
-                                  size: 16.sp,
+                                  size: 16,
                                   textcolor: customBalck)),
                           CustomTextField(
                             hint: "name",
@@ -82,14 +87,14 @@ class AdminUser extends StatelessWidget {
                             readonly: true,
                           ),
                           SizedBox(
-                            height: 30.h,
+                            height: 10.h,
                           ),
-                          Align(
+                          const Align(
                               alignment: Alignment.centerLeft,
                               child: AppText(
                                   text: "Phone number",
                                   weight: FontWeight.w500,
-                                  size: 16.sp,
+                                  size: 16,
                                   textcolor: customBalck)),
                           CustomTextField(
                             hint: "phone number",
@@ -99,14 +104,14 @@ class AdminUser extends StatelessWidget {
                             readonly: true,
                           ),
                           SizedBox(
-                            height: 30.h,
+                            height: 10.h,
                           ),
-                          Align(
+                          const Align(
                               alignment: Alignment.centerLeft,
                               child: AppText(
                                   text: "email adders",
                                   weight: FontWeight.w500,
-                                  size: 16.sp,
+                                  size: 16,
                                   textcolor: customBalck)),
                           CustomTextField(
                             hint: "email",
@@ -118,24 +123,25 @@ class AdminUser extends StatelessWidget {
                         ],
                       ),
                     ),
-                    Row(
-                      children: [
-                        Expanded(
-                            child: CustomButton(
-                                btnname: "Accept",
-                                btntheam: maincolor,
-                                textcolor: white,
-                                click: () {})),
-                        const SizedBox(
-                          width: 10,
-                        ),
-                        Expanded(
-                            child: CustomButton(
-                                btnname: "reject",
-                                btntheam: lightred,
-                                textcolor: white,
-                                click: () {})),
-                      ],
+                    Padding(
+                      padding: const EdgeInsets.only(left: 20,right: 20).r,
+                      child: Row(
+                        children: [
+                          Expanded(
+                              child: CustomButton(
+                                  btnname: "Accept",
+                                  btntheam: tabcolor,
+                                  textcolor: white,
+                                  click: () {})),
+                          SizedBox(width: 10.w,),
+                          Expanded(
+                              child: CustomButton(
+                                  btnname: "reject",
+                                  btntheam: lightred,
+                                  textcolor: white,
+                                  click: () {})),
+                        ],
+                      ),
                     )
                   ]),
             )),

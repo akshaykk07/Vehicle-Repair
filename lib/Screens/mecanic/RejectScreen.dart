@@ -37,13 +37,14 @@ class _RejectScreen extends State<RejectScreen> {
         padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
         child: SingleChildScrollView(
           child: Column(children: [
-            const RequestTale(
+            RequestTale(
                 image: "assets/men2.png",
                 name: "name",
                 issue: "Fuel leaking",
                 date: "date",
                 time: "time",
-                place: 'place'),
+                place: 'place',
+                click: () {}),
             SizedBox(
               height: 80.h,
             ),
@@ -58,8 +59,7 @@ class _RejectScreen extends State<RejectScreen> {
             SizedBox(
               height: 30.h,
             ),
-            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
+            Row(mainAxisAlignment: MainAxisAlignment.spaceBetween, children: [
               Row(
                 children: [
                   Radio(
@@ -125,7 +125,7 @@ class _RejectScreen extends State<RejectScreen> {
                       borderRadius: BorderRadius.circular(12).r)),
             ),
             Padding(
-              padding: const EdgeInsets.only(left: 50, right: 50, top: 20).r,
+              padding: const EdgeInsets.only(left: 50, right: 50, top: 20,bottom: 30).r,
               child: CustomButton(
                   btnname: "Submit",
                   btntheam: customBlue,

@@ -20,19 +20,19 @@ class Rating extends StatelessWidget {
             ),
           ),
           backgroundColor: maincolor,
-          title: AppText(
+          title: const AppText(
               text: "Rating",
               weight: FontWeight.w400,
-              size: 20.sp,
+              size: 20,
               textcolor: customBalck),
           centerTitle: true),
       body: Padding(
-        padding: const EdgeInsets.only(left: 30, right: 30, top: 30),
+        padding: const EdgeInsets.only(left: 30, right: 30, top: 30).r,
         child: Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-          AppText(
+          const AppText(
               text: "The rating given to you",
               weight: FontWeight.w400,
-              size: 10.sp,
+              size: 10,
               textcolor: Colors.grey),
           Expanded(
             child: Padding(
@@ -46,7 +46,7 @@ class Rating extends StatelessWidget {
                     time: 'time',
                     place: 'place');
               },
-                itemCount: 10,
+                itemCount: 2,
               ),
             ),
           )

@@ -37,13 +37,14 @@ class _AcceptScreenState extends State<AcceptScreen> {
         padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
         child: SingleChildScrollView(
           child: Column(children: [
-            const RequestTale(
+             RequestTale(
                 image: "assets/men2.png",
                 name: "name",
                 issue: "Fuel leaking",
                 date: "date",
                 time: "time",
-                place: 'place'),
+                place: 'place',
+            click: (){}),
             SizedBox(
               height: 80.h,
             ),
