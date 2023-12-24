@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/color.dart';
 import 'apptext.dart';
 
-class PaymentTale extends StatelessWidget {
-  const PaymentTale({
+class PaymentTile extends StatelessWidget {
+  const PaymentTile({
     super.key,
     required this.name,
     required this.date,

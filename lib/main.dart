@@ -5,12 +5,15 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'Screens/admin/adminHome.dart';
 import 'Screens/admin/adminLogin.dart';
+import 'Screens/common/Splash.dart';
 import 'Screens/mecanic/MechHome.dart';
 import 'Screens/mecanic/MechMain.dart';
 import 'Screens/mecanic/Login.dart';
+import 'Screens/mecanic/Signup.dart';
 import 'Screens/user/UserHome.dart';
 import 'Screens/user/UserLogin.dart';
 import 'Screens/user/UserProfile.dart';
+import 'Screens/user/UserSignup.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +28,6 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return ScreenUtilInit(
       builder: (context, child) => MaterialApp(
-          //screen util package for adaptive ui
           debugShowCheckedModeBanner: false,
           title: 'Flutter Demo',
           theme: ThemeData(
@@ -34,7 +36,7 @@ class MyApp extends StatelessWidget {
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             // useMaterial3: true,
           ),
-          home: UserHome()),
+          home: SplashScreen()),
       designSize: Size(390, 844),
     );
   }

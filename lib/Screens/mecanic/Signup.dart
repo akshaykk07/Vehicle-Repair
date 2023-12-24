@@ -35,7 +35,7 @@ class MechSignup extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             Padding(
-              padding: const EdgeInsets.only(top: 100).r,
+              padding: const EdgeInsets.only(top: 70).r,
               child: Image.asset(
                 "assets/logo.png",
                 width: 140.w,

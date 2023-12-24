@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/color.dart';
-import '../../widgets/paymentTale.dart';
+import '../../widgets/paymentTile.dart';
 
 class PaymentScreen extends StatelessWidget {
   const PaymentScreen({super.key});
@@ -21,7 +21,7 @@ class PaymentScreen extends StatelessWidget {
           padding: const EdgeInsets.only(left: 20, right: 20, top: 30).r,
           child: ListView.builder(
             itemBuilder: (context, index) {
-              return const PaymentTale(
+              return const PaymentTile(
                   name: "name",
                   date: "12/12/2023",
                   amount: "5455",

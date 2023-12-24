@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_application_1/widgets/customButton.dart';
-import 'package:flutter_application_1/widgets/requestTale.dart';
+import 'package:flutter_application_1/widgets/requestTile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/color.dart';
@@ -37,7 +37,7 @@ class _AcceptScreenState extends State<AcceptScreen> {
         padding: const EdgeInsets.only(left: 30, right: 30, top: 10),
         child: SingleChildScrollView(
           child: Column(children: [
-             RequestTale(
+             RequestTile(
                 image: "assets/men2.png",
                 name: "name",
                 issue: "Fuel leaking",

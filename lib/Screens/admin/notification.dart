@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'package:flutter_application_1/widgets/notificationTale.dart';
+import 'package:flutter_application_1/widgets/notificationTile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/color.dart';
@@ -23,7 +23,7 @@ class NotificationScreen extends StatelessWidget {
         padding: const EdgeInsets.only(left: 20, right: 20, top: 20).r,
         child: ListView.builder(
           itemBuilder: (context, index) {
-            return const NotificationTale(
+            return const NotificationTile(
                 heading: "Heading",
                 contents:
                     "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying Lorem ipsum ");

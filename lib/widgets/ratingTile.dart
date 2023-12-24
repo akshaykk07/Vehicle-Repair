@@ -5,8 +5,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/color.dart';
 import 'apptext.dart';
 
-class RatingTale extends StatefulWidget {
-  RatingTale({
+class RatingTile extends StatefulWidget {
+  RatingTile({
     super.key,
     required this.image,
     required this.name,
@@ -24,10 +24,10 @@ class RatingTale extends StatefulWidget {
   final String place;
 
   @override
-  State<RatingTale> createState() => _RatingTaleState();
+  State<RatingTile> createState() => _RatingTaleState();
 }
 
-class _RatingTaleState extends State<RatingTale> {
+class _RatingTaleState extends State<RatingTile> {
   double rate = 0;
 
   @override

@@ -5,7 +5,7 @@ import 'package:flutter_application_1/widgets/customButton.dart';
 import 'package:flutter_application_1/widgets/customTextfield.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import '../../widgets/serviceTale.dart';
+import '../../widgets/serviceTile.dart';
 
 class Services extends StatelessWidget {
   Services({super.key});
@@ -34,7 +34,7 @@ class Services extends StatelessWidget {
           padding: const EdgeInsets.only(left: 28, right: 28, top: 20).r,
           child: ListView.builder(
             itemBuilder: (context, index) {
-              return const ServiceTale(
+              return const ServiceTile(
                 title: "Tyre puncture service ",
               );
             },

@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/color.dart';
 import 'apptext.dart';
 
-class ServiceTale extends StatelessWidget {
-  const ServiceTale({
+class ServiceTile extends StatelessWidget {
+  const ServiceTile({
     super.key,
     required this.title,
   });

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/acceptTale.dart';
+import '../../widgets/acceptTile.dart';
 
 class AcceptedList extends StatelessWidget {
   const AcceptedList({super.key});
@@ -12,7 +12,7 @@ class AcceptedList extends StatelessWidget {
         //   body:
         ListView.builder(
       itemBuilder: (context, index) {
-        return const AcceptTale(
+        return const AcceptTile(
           image: "assets/men.png",
           name: "name",
           issue: "Fuel leaking",

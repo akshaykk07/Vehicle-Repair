@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
-import 'package:flutter_application_1/widgets/userRequestTale.dart';
+import 'package:flutter_application_1/widgets/userRequestTile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserRequest extends StatelessWidget {
@@ -16,7 +16,7 @@ class UserRequest extends StatelessWidget {
             padding: const EdgeInsets.only(left: 34, right: 34),
             child: ListView.builder(
               itemBuilder: (context, index) {
-                return const UserRequestTale(
+                return const UserRequestTile(
                     name: "name",
                     date: "date",
                     time: "time",

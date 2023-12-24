@@ -3,7 +3,7 @@ import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({
+  const CustomTextField({          // custom TextField........
     super.key,
     required this.hint,
     this.kebordtype = TextInputType.text,

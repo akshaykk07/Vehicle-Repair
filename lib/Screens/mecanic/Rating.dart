@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../constants/color.dart';
 import '../../widgets/apptext.dart';
-import '../../widgets/ratingTale.dart';
+import '../../widgets/ratingTile.dart';
 
 class Rating extends StatelessWidget {
   const Rating({super.key});
@@ -38,7 +38,7 @@ class Rating extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.only(top: 10).r,
               child: ListView.builder(itemBuilder: (context, index) {
-                return   RatingTale(
+                return   RatingTile(
                     image: "assets/men.png",
                     name: "name",
                     work: 'engine work',

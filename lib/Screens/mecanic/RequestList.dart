@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../widgets/requestTale.dart';
+import '../../widgets/requestTile.dart';
 import 'RequestScreen.dart';
 
 class RequestsList extends StatelessWidget {
@@ -13,7 +13,7 @@ class RequestsList extends StatelessWidget {
         //   body:
         ListView.builder(
       itemBuilder: (context, index) {
-        return RequestTale(
+        return RequestTile(
           image: "assets/men.png",
           name: "name",
           issue: "Fuel leaking ",

@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/color.dart';
 import 'apptext.dart';
 
-class UserRequestTale extends StatelessWidget {
-  const UserRequestTale({
+class UserRequestTile extends StatelessWidget {
+  const UserRequestTile({
     super.key,
     required this.name,
     required this.date,

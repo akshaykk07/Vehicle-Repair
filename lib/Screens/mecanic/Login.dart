@@ -5,6 +5,7 @@ import 'package:flutter_application_1/widgets/customTextfield.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'MechHome.dart';
 import 'Signup.dart';
 
 class MechLogin extends StatelessWidget {
@@ -85,10 +86,17 @@ class MechLogin extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 50, right: 50).r,
               child: CustomButton(
+                  //Login Button.........
                   btnname: "LOGIN",
                   btntheam: customBlue,
                   textcolor: white,
-                  click: () {}),
+                  click: () {
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => MechHome(),
+                        ));
+                  }),
             ),
             SizedBox(
               height: 20.h,
@@ -106,10 +114,10 @@ class MechLogin extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => MechSignup(),// SignUp .......
+                          builder: (context) => MechSignup(), // SignUp .......
                         ));
                   },
                   child: const AppText(

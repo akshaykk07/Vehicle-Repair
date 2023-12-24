@@ -15,6 +15,7 @@ class UserProfile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
       appBar: AppBar(
         leading: InkWell(
             onTap: () {
@@ -29,17 +30,22 @@ class UserProfile extends StatelessWidget {
         padding: const EdgeInsets.only(left: 35, right: 35).r,
         child: SingleChildScrollView(
           child: Column(children: [
+            SizedBox(height: 100.h,),
             CircleAvatar(
               radius: 50.r,
               backgroundImage: const AssetImage("assets/admin.png"),
             ),
-            SizedBox(height: 10.h,),
+            SizedBox(
+              height: 10.h,
+            ),
             const AppText(
                 text: "Name",
                 weight: FontWeight.w500,
                 size: 10,
                 textcolor: customBalck),
-            SizedBox(height: 50.h,),
+            SizedBox(
+              height: 50.h,
+            ),
             const Align(
                 alignment: Alignment.centerLeft,
                 child: AppText(
@@ -77,9 +83,9 @@ class UserProfile extends StatelessWidget {
                 controller: name,
                 validator: (value) {}),
             Padding(
-              padding: const EdgeInsets.only(left: 50,right: 50,top: 150).r,
+              padding: const EdgeInsets.only(left: 50, right: 50, top: 150).r,
               child: CustomButton(
-                  btnname: "Done",        //Custom Button......
+                  btnname: "Done", //Custom Button......
                   btntheam: customBlue,
                   textcolor: white,
                   click: () {}),

@@ -17,6 +17,7 @@ class MechMain extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: InkWell(
             onTap: () {
               Navigator.push(
@@ -43,10 +44,21 @@ class MechMain extends StatelessWidget {
                         builder: (context) => AdminNotification(),
                       ));
                 },
-                child: Icon(
-                  Icons.notifications,
-                  color: Colors.yellow[700],
-                  size: 30,
+                child: Stack(
+                  children: [
+                    Icon(
+                      Icons.notifications,
+                      color: Colors.yellow[700],
+                      size: 30,
+                    ),
+                     Positioned( // notification Icon......
+                        left: 15.r,
+                        top: 5.r,
+                        child: CircleAvatar(
+                          radius: 6.r,
+                          backgroundColor: Colors.red,
+                        )),
+                  ],
                 ),
               ),
             )

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/color.dart';
-import 'package:flutter_application_1/widgets/mecahnicTale.dart';
+import 'package:flutter_application_1/widgets/mecahnicTile.dart';
 
 import 'adminMech.dart';
 

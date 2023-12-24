@@ -30,8 +30,9 @@ class UserHome extends StatelessWidget {
                   onTap: () {
                     Navigator.push(
                         context,
-                        MaterialPageRoute( // go to user profile screen..
-                          builder: (context) =>  UserProfile(),
+                        MaterialPageRoute(
+                          // go to user profile screen..
+                          builder: (context) => UserProfile(),
                         ));
                   },
                   child: CircleAvatar(
@@ -76,9 +77,22 @@ class UserHome extends StatelessWidget {
                           builder: (context) => const UserNotification(),
                         ));
                   },
-                  child: Icon(
-                    Icons.notifications,
-                    color: Colors.yellow[800],
+                  child: Stack(
+                    children: [
+                      Icon(
+                        Icons.notifications,
+                        color: Colors.yellow[800],
+                        size: 30,
+                      ),
+                       Positioned(
+                          // notification Icon......
+                          left: 15.r,
+                          top: 5.r,
+                          child: CircleAvatar(
+                            radius: 6.r,
+                            backgroundColor: Colors.red,
+                          )),
+                    ],
                   ),
                 )
               ]),

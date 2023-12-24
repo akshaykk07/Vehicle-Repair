@@ -5,6 +5,7 @@ import 'package:flutter_application_1/widgets/customTextfield.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import 'UserHome.dart';
 import 'UserSignup.dart';
 
 class UserLogin extends StatelessWidget {
@@ -23,7 +24,7 @@ class UserLogin extends StatelessWidget {
         padding: const EdgeInsets.only(left: 45, right: 45, top: 100).r,
         child: SingleChildScrollView(
           child:
-          Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
+              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             Image.asset(
               "assets/logo.png",
               width: 140.w,
@@ -87,10 +88,16 @@ class UserLogin extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.only(left: 50, right: 50).r,
               child: CustomButton(
-                  btnname: "LOGIN",
+                  btnname: "LOGIN", // Login Button.....
                   btntheam: customBlue,
                   textcolor: white,
-                  click: () {}),
+                  click: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UserHome(),
+                        ));
+                  }),
             ),
             SizedBox(
               height: 20.h,
@@ -108,7 +115,11 @@ class UserLogin extends StatelessWidget {
                 ),
                 InkWell(
                   onTap: () {
-                    Navigator.push(context, MaterialPageRoute(builder: (context) => UserSignup(),));// SignUp ..................................
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => UserSignup(),
+                        )); // SignUp ..................................
                   },
                   child: const AppText(
                       text: "Sign up",

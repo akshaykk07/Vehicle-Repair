@@ -5,8 +5,8 @@ import 'package:google_fonts/google_fonts.dart';
 import '../constants/color.dart';
 import 'apptext.dart';
 
-class NotificationTale extends StatelessWidget {
-  const NotificationTale({
+class NotificationTile extends StatelessWidget {
+  const NotificationTile({
     super.key,
     required this.heading,
     required this.contents,

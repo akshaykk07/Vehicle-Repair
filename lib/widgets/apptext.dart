@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 class AppText extends StatelessWidget {
-  const AppText(
+  const AppText(        //Custom Text Widget.....
       {super.key,
       required this.text,
       required this.weight,

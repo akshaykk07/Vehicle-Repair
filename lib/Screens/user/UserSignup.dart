@@ -16,6 +16,16 @@ class UserSignup extends StatelessWidget {
 
   Widget build(BuildContext context) {
     return Scaffold(
+      extendBodyBehindAppBar: true,
+      appBar: AppBar(
+          leading: InkWell(
+              onTap: () {
+                Navigator.pop(context);
+              },
+              child: const Icon(
+                Icons.arrow_back_ios,
+                color: customBalck,
+              ))),
       backgroundColor: maincolor,
       body: Padding(
         padding: const EdgeInsets.only(left: 45, right: 45).r,
@@ -23,7 +33,7 @@ class UserSignup extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             Padding(
-              padding: const EdgeInsets.only(top: 100).r,
+              padding: const EdgeInsets.only(top: 70).r,
               child: Image.asset(
                 "assets/logo.png",
                 width: 140.w,

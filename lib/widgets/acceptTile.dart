@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../constants/color.dart';
 import 'apptext.dart';
 
-class AcceptTale extends StatelessWidget {
-  const AcceptTale({
+class AcceptTile extends StatelessWidget {
+  const AcceptTile({
     super.key,
     required this.image,
     required this.name,
