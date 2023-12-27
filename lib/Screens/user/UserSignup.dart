@@ -33,7 +33,7 @@ class UserSignup extends StatelessWidget {
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
             Padding(
-              padding: const EdgeInsets.only(top: 70).r,
+              padding: const EdgeInsets.only(top: 60).r,
               child: Image.asset(
                 "assets/logo.png",
                 width: 140.w,
@@ -105,7 +105,7 @@ class UserSignup extends StatelessWidget {
                 controller: password,
                 validator: (value) {}),
             SizedBox(
-              height: 60.h,
+              height: 30.h,
             ),
             Padding(
               padding: const EdgeInsets.only(left: 50, right: 50, bottom: 30).r,

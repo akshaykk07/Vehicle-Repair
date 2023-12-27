@@ -6,9 +6,11 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'Screens/admin/adminHome.dart';
 import 'Screens/admin/adminLogin.dart';
 import 'Screens/common/Splash.dart';
+import 'Screens/mecanic/EditProfile.dart';
 import 'Screens/mecanic/MechHome.dart';
 import 'Screens/mecanic/MechMain.dart';
 import 'Screens/mecanic/Login.dart';
+import 'Screens/mecanic/Profile.dart';
 import 'Screens/mecanic/Signup.dart';
 import 'Screens/user/UserHome.dart';
 import 'Screens/user/UserLogin.dart';
@@ -36,7 +38,7 @@ class MyApp extends StatelessWidget {
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             // useMaterial3: true,
           ),
-          home: AdminLogin()),
+          home: UserSignup()),
       designSize: Size(390, 844),
     );
   }
