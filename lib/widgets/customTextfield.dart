@@ -27,9 +27,6 @@ class CustomTextField extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.only(top: 8, bottom: 15).r,
       child:
-          SizedBox(
-            height: 50.h,
-            child:
           TextFormField(
                   controller: controller,
                   validator: validator,
@@ -40,7 +37,7 @@ class CustomTextField extends StatelessWidget {
             filled: true,
             hintText: hint,
             contentPadding:
-                EdgeInsets.symmetric(vertical: 10.h, horizontal: 15.w),
+                EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),
             focusedBorder: OutlineInputBorder(
                 borderSide: const BorderSide(color: customGrey),
                 borderRadius: BorderRadius.circular(8).r),
@@ -50,7 +47,6 @@ class CustomTextField extends StatelessWidget {
             border: const OutlineInputBorder(
                 borderSide: BorderSide(color: customGrey))),
                 ),
-       ),
     );
   }
 }
