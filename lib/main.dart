@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
             // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
             // useMaterial3: true,
           ),
-          home: MechSignup()),
+          home: AdminLogin()),
       designSize: Size(390, 844),
     );
   }

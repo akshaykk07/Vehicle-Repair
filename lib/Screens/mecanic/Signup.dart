@@ -66,7 +66,7 @@ class _MechSignupState extends State<MechSignup> {
                   size: 23,
                   textcolor: customBalck),
                             SizedBox(
-                height: 50.h,
+                height: 40.h,
                             ),
                             const Align(
                 alignment: Alignment.bottomLeft,
@@ -105,7 +105,12 @@ class _MechSignupState extends State<MechSignup> {
                   hint: "Enter your email",
                   controller: email,
                   kebordtype: TextInputType.emailAddress,
-                  validator: (value) {}),
+                  validator: (value) {
+
+
+
+
+                  }),
                             const Align(
                 alignment: Alignment.bottomLeft,
                 child: AppText(
