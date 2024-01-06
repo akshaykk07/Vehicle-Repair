@@ -19,37 +19,40 @@ class NotifiactionCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: white,
-      shape: OutlineInputBorder(
-          borderSide: const BorderSide(color: customBalck),
-          borderRadius: BorderRadius.circular(12).r),
-      child: Padding(
-        padding: const EdgeInsets.all(10).r,
-        child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-          AppText(
-              text: time,
-              weight: FontWeight.w400,
-              size: 12,
-              textcolor: customBalck),
-          Padding(
-            padding: const EdgeInsets.only(right: 10).r,
-            child: Align(
-                alignment: Alignment.centerLeft,
-                child: Text(
-                  title,
-                  style: GoogleFonts.poppins(
-                      fontWeight: FontWeight.w400,
-                      fontSize: 12.sp,
-                      color: Colors.grey),
-                )),
-          ),
-          AppText(
-              text: date,
-              weight: FontWeight.w400,
-              size: 12,
-              textcolor: Colors.grey),
-        ]),
+    return Padding(
+      padding: const EdgeInsets.only(top: 5).r,
+      child: Card(
+        color: white,
+        shape: OutlineInputBorder(
+            borderSide: const BorderSide(color: customBalck),
+            borderRadius: BorderRadius.circular(12).r),
+        child: Padding(
+          padding: const EdgeInsets.all(10).r,
+          child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
+            AppText(
+                text: time,
+                weight: FontWeight.w400,
+                size: 12,
+                textcolor: customBalck),
+            Padding(
+              padding: const EdgeInsets.only(right: 10).r,
+              child: Align(
+                  alignment: Alignment.centerLeft,
+                  child: Text(
+                    title,
+                    style: GoogleFonts.poppins(
+                        fontWeight: FontWeight.w400,
+                        fontSize: 12.sp,
+                        color: Colors.black),
+                  )),
+            ),
+            AppText(
+                text: date,
+                weight: FontWeight.w400,
+                size: 12,
+                textcolor: Colors.black),
+          ]),
+        ),
       ),
     );
   }

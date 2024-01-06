@@ -18,9 +18,7 @@ class MechLogin extends StatefulWidget {
 class _MechLoginState extends State<MechLogin> {
   @override
   final username = TextEditingController();
-
   final password = TextEditingController();
-
   final formkey = GlobalKey<FormState>();
 
   Widget build(BuildContext context) {

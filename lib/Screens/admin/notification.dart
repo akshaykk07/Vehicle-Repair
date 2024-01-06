@@ -1,8 +1,7 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-
 import 'package:flutter_application_1/widgets/notificationTile.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
 import '../../constants/color.dart';
 import 'addNotification.dart';
 
@@ -13,6 +12,7 @@ class NotificationScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         title: CircleAvatar(
           radius: 30.r,
           backgroundImage: const AssetImage("assets/admin.png"),
@@ -21,15 +21,27 @@ class NotificationScreen extends StatelessWidget {
       backgroundColor: lightBlue,
       body: Padding(
         padding: const EdgeInsets.only(left: 20, right: 20, top: 20).r,
-        child: ListView.builder(
-          itemBuilder: (context, index) {
-            return const NotificationTile(
-                heading: "Heading",
-                contents:
-                    "Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying Lorem ipsum ");
-          },
-          itemCount: 10,
-        ),
+        child: StreamBuilder(
+            stream: FirebaseFirestore.instance
+                .collection('Notification')
+                .snapshots(),
+            builder: (context, AsyncSnapshot<QuerySnapshot> snapshot) {
+              if (snapshot.connectionState == ConnectionState.waiting) {
+                return const Center(child: CircularProgressIndicator());
+              }
+              if (snapshot.hasError) {
+                return Text('Error${snapshot.error}');
+              }
+              final user = snapshot.data?.docs ?? [];
+              return ListView.builder(
+                itemBuilder: (context, index) {
+                  final title = user[index]['heading'];
+                  final content = user[index]['content'];
+                  return NotificationTile(heading: title, contents: content);
+                },
+                itemCount: user.length,
+              );
+            }),
       ),
       floatingActionButton: FloatingActionButton(
           onPressed: () {

@@ -28,6 +28,7 @@ class CustomTextField extends StatelessWidget {
       padding: const EdgeInsets.only(top: 8, bottom: 15).r,
       child:
           TextFormField(
+            keyboardType: kebordtype,
                   controller: controller,
                   validator: validator,
                   obscureText: obscure,

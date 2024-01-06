@@ -1,3 +1,4 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_application_1/widgets/customButton.dart';
@@ -74,7 +75,7 @@ class _UserSignupState extends State<UserSignup> {
                       controller: username,
                       validator: (value) {
                         if (value!.isEmpty || value == null) {
-                          return "enter username";  // validation............
+                          return "enter username"; // validation............
                         }
                       }),
                   const Align(
@@ -90,7 +91,8 @@ class _UserSignupState extends State<UserSignup> {
                       controller: phone,
                       kebordtype: TextInputType.number,
                       validator: (value) {
-                        if (value?.length != 10) {      // validation............
+                        if (value?.length != 10) {
+                          // validation............
                           return 'Please enter mobile number';
                         }
                       }),
@@ -109,7 +111,8 @@ class _UserSignupState extends State<UserSignup> {
                       validator: (value) {
                         if (value!.isEmpty ||
                             !RegExp(r"^[a-zA-Z0-9.a-zA-Z0-9.!#$%&'*+-/=?^_`{|}~]+@[a-zA-Z0-9]+\.[a-zA-Z]+")
-                                .hasMatch(value)) {  // validation............
+                                .hasMatch(value)) {
+                          // validation............
                           return 'Enter a valid email!';
                         }
                       }),
@@ -127,7 +130,7 @@ class _UserSignupState extends State<UserSignup> {
                       controller: password,
                       validator: (value) {
                         if (value!.isEmpty || value == null) {
-                          return "enter password";   // validation............
+                          return "enter password"; // validation............
                         }
                       }),
                   SizedBox(
@@ -143,7 +146,9 @@ class _UserSignupState extends State<UserSignup> {
                         btntheam: customBlue,
                         textcolor: white,
                         click: () {
-                          formkey.currentState!.validate();
+                          if (formkey.currentState!.validate()) {
+                            signUp();
+                          }
                         }),
                   ),
                 ]),
@@ -151,5 +156,19 @@ class _UserSignupState extends State<UserSignup> {
         ),
       ),
     );
+  }
+
+  Future<void> signUp() async {
+    await FirebaseFirestore.instance.collection('userSignUp').add({
+      'username': username.text,
+      'phone': phone.text,
+      'email': email.text,
+      'password': password.text,
+      'status': 0
+    });
+    username.clear();
+    phone.clear();
+    email.clear();
+    password.clear();
   }
 }

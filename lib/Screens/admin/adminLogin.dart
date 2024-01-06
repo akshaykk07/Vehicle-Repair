@@ -7,11 +7,17 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import 'adminHome.dart';
 
-class AdminLogin extends StatelessWidget {
+class AdminLogin extends StatefulWidget {
   AdminLogin({super.key});
 
   @override
+  State<AdminLogin> createState() => _AdminLoginState();
+}
+
+class _AdminLoginState extends State<AdminLogin> {
+  @override
   final username = TextEditingController();
+
   final password = TextEditingController();
 
   Widget build(BuildContext context) {
@@ -76,16 +82,25 @@ class AdminLogin extends StatelessWidget {
                   btntheam: customBlue,
                   textcolor: white,
                   click: () {
-                    Navigator.pushReplacement(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => AdminHome(),
-                        )); //Login Function.....
+                    adminLogin(context); //Login Function.....
                   }),
             )
           ]),
         ),
       ),
     );
+  }
+
+  void adminLogin(BuildContext context) {
+    if (username.text == 'admin' && password.text == 'admin123') {
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => AdminHome(),
+          ));
+    } else {
+      ScaffoldMessenger.of(context).showSnackBar(
+          SnackBar(content: Text("Inavalid username or password")));
+    }
   }
 }

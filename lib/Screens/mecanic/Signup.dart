@@ -15,7 +15,6 @@ class MechSignup extends StatefulWidget {
 }
 
 class _MechSignupState extends State<MechSignup> {
-  @override
   final username = TextEditingController();
   final phone = TextEditingController();
   final email = TextEditingController();
@@ -182,8 +181,8 @@ class _MechSignupState extends State<MechSignup> {
                         btntheam: customBlue,
                         textcolor: white,
                         click: () {
-                          formkey.currentState!.validate();
-                          //signUp();
+                         // formkey.currentState!.validate();
+                          signUp();
                         }),
                   ),
                 ]),
@@ -201,6 +200,7 @@ class _MechSignupState extends State<MechSignup> {
       'experience': experience.text,
       'workshop': workshop.text,
       'password': password.text,
+      'status': 0
     });
     username.clear();
     phone.clear();
