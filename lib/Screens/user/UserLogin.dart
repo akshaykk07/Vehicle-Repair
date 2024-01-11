@@ -1,21 +1,33 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_application_1/widgets/customButton.dart';
 import 'package:flutter_application_1/widgets/customTextfield.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'UserHome.dart';
 import 'UserSignup.dart';
 
-class UserLogin extends StatelessWidget {
-  UserLogin({super.key});
+class UserLogin extends StatefulWidget {
+  const UserLogin({super.key});
 
   @override
+  State<UserLogin> createState() => _UserLoginState();
+}
+
+class _UserLoginState extends State<UserLogin> {
   final username = TextEditingController();
   final password = TextEditingController();
   final formkey = GlobalKey<FormState>();
+  String? id;
+  String? name;
+  String? email;
+  String? phone;
+  String? location;
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       // resizeToAvoidBottomInset: true,
@@ -57,7 +69,7 @@ class UserLogin extends StatelessWidget {
                       controller: username,
                       validator: (value) {
                         if (value!.isEmpty || value == null) {
-                          return "enter username";// validation.................
+                          return "enter username"; // validation.................
                         }
                       }),
                   SizedBox(
@@ -76,7 +88,8 @@ class UserLogin extends StatelessWidget {
                       controller: password,
                       obscure: true,
                       validator: (value) {
-                        if (value!.isEmpty || value == null) { // validation.................
+                        if (value!.isEmpty || value == null) {
+                          // validation.................
                           return "enter password";
                         }
                       }),
@@ -105,12 +118,9 @@ class UserLogin extends StatelessWidget {
                         btntheam: customBlue,
                         textcolor: white,
                         click: () {
-                          //formkey.currentState!.validate();
-                          Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => UserHome(),
-                              ));
+                          if (formkey.currentState!.validate()) {
+                            userLogin();
+                          }
                         }),
                   ),
                   SizedBox(
@@ -148,5 +158,37 @@ class UserLogin extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void userLogin() async {
+    final user = await FirebaseFirestore.instance
+        .collection('userSignUp')
+        .where('email', isEqualTo: username.text)
+        .where('password', isEqualTo: password.text)
+        .where('status', isEqualTo: 1)
+        .get();
+    if (user.docs.isNotEmpty) {
+      id = user.docs[0].id;
+      name = user.docs[0]['username'];
+      email = user.docs[0]['email'];
+      phone = user.docs[0]['phone'];
+      location = user.docs[0]['location'];
+      SharedPreferences data = await SharedPreferences.getInstance();
+      data.setString('id', id!);
+      data.setString('name', name!);
+      data.setString('email', email!);
+      data.setString('phone', phone!);
+      data.setString('location', location!);
+      // ignore: use_build_context_synchronously
+      Navigator.pushReplacement(
+          context,
+          MaterialPageRoute(
+            builder: (context) => UserHome(),
+          ));
+    } else {
+      // ignore: use_build_context_synchronously
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("username and password error")));
+    }
   }
 }

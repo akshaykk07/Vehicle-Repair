@@ -3,7 +3,8 @@ import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomTextField extends StatelessWidget {
-  const CustomTextField({          // custom TextField........
+  const CustomTextField({
+    // custom TextField........
     super.key,
     required this.hint,
     this.kebordtype = TextInputType.text,
@@ -11,7 +12,7 @@ class CustomTextField extends StatelessWidget {
     required this.validator,
     this.obscure = false,
     this.fillcolor = white,
-    this.readonly = false,
+    this.readonly = false, this.onChanged,
   });
 
   final String hint;
@@ -21,19 +22,20 @@ class CustomTextField extends StatelessWidget {
   final bool obscure;
   final bool readonly;
   final Color fillcolor;
+  final Function(String)? onChanged;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.only(top: 8, bottom: 15).r,
-      child:
-          TextFormField(
-            keyboardType: kebordtype,
-                  controller: controller,
-                  validator: validator,
-                  obscureText: obscure,
-                  readOnly: readonly,
-                  decoration: InputDecoration(
+      child: TextFormField(
+        keyboardType: kebordtype,
+        controller: controller,
+        validator: validator,
+        obscureText: obscure,
+        readOnly: readonly,
+        onChanged:onChanged,
+        decoration: InputDecoration(
             fillColor: fillcolor,
             filled: true,
             hintText: hint,
@@ -47,7 +49,7 @@ class CustomTextField extends StatelessWidget {
                 borderRadius: BorderRadius.circular(8).r),
             border: const OutlineInputBorder(
                 borderSide: BorderSide(color: customGrey))),
-                ),
+      ),
     );
   }
 }

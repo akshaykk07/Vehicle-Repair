@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:intl/intl.dart';
+
 
 class StatusProvider extends ChangeNotifier {
   void accept(id, collection) {
@@ -11,8 +11,8 @@ class StatusProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  void reject(id, collection) {
-    FirebaseFirestore.instance
+  void reject(id, collection) async{
+   await FirebaseFirestore.instance
         .collection(collection)
         .doc(id)
         .update({'status': 2});
@@ -20,15 +20,4 @@ class StatusProvider extends ChangeNotifier {
   }
 }
 
-class NotificationProvider extends ChangeNotifier {
-  Future addNotifiaction(
-      matter, content, time, date, BuildContext context) async {
-    FirebaseFirestore.instance.collection('Notification').add({
-      'heading': matter.text,
-      'content': content.text,
-      'time': time.format(context),
-      'date': DateFormat('dd/mm/yy').format(date)
-    });
-    notifyListeners();
-  }
-}
+

@@ -11,14 +11,16 @@ class MechanicStatusTile extends StatelessWidget {
       required this.name,
       required this.experience,
       required this.work,
-      required this.status, required this.click});
+      required this.status,
+      required this.click});
 
   final String image;
   final String name;
   final String experience;
   final String work;
-  final bool status; //if status is true mechanic is available/false not available
- final void Function() click;
+  final bool
+      status; //if status is true mechanic is available/false not available
+  final void Function() click;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -29,11 +31,20 @@ class MechanicStatusTile extends StatelessWidget {
           height: 123.h,
           width: double.infinity,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15).r, color: lightBlue),
+              gradient: const LinearGradient(
+                colors: [
+                  Color(0xFF614385),
+                  Color(0xFF516395),
+                ],
+              ),
+              borderRadius: BorderRadius.circular(15).r,
+              color: lightBlue),
           child: Padding(
             padding:
-                const EdgeInsets.only(left: 10, right: 40, top: 10, bottom: 10).r,
-            child: Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
+                const EdgeInsets.only(left: 10, right: 40, top: 10, bottom: 10)
+                    .r,
+            child:
+                Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
               SizedBox(
                 width: 80,
                 child: Column(
@@ -49,7 +60,7 @@ class MechanicStatusTile extends StatelessWidget {
                         text: name,
                         weight: FontWeight.w400,
                         size: 14,
-                        textcolor: customBalck)
+                        textcolor: white)
                   ],
                 ),
               ),
@@ -62,19 +73,20 @@ class MechanicStatusTile extends StatelessWidget {
                           text: experience,
                           weight: FontWeight.w400,
                           size: 14,
-                          textcolor: customBalck),
+                          textcolor: white),
                       AppText(
                           text: work,
                           weight: FontWeight.w400,
                           size: 14,
-                          textcolor: customBalck),
+                          textcolor: white),
                       Card(
                         color: status == true ? Colors.green : Colors.red,
                         child: Padding(
                           padding: const EdgeInsets.only(
                               left: 20, right: 20, top: 5, bottom: 5),
                           child: AppText(
-                              text: status == true ? "Available" : "Unavailable",
+                              text:
+                                  status == true ? "Available" : "Unavailable",
                               weight: FontWeight.w400,
                               size: 12,
                               textcolor: white),

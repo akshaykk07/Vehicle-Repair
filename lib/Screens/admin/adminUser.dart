@@ -150,7 +150,7 @@ class AdminUser extends StatelessWidget {
                                               btntheam: tabcolor,
                                               textcolor: white,
                                               click: () {
-                                                sts.accept(id,'userSignUp');
+                                                sts.accept(id, 'userSignUp');
                                                 // accept(widget.id);
                                               })),
                                       SizedBox(
@@ -162,7 +162,7 @@ class AdminUser extends StatelessWidget {
                                               btntheam: lightred,
                                               textcolor: white,
                                               click: () {
-                                                sts.reject(id,'userSignUp');
+                                                sts.reject(id, 'userSignUp');
                                               })),
                                     ],
                                   )

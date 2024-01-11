@@ -6,6 +6,7 @@ import 'package:flutter_application_1/Screens/admin/mecanicList.dart';
 import 'package:flutter_application_1/Screens/admin/notification.dart';
 import 'package:flutter_application_1/Screens/mecanic/AdminNotification.dart';
 import 'package:flutter_application_1/Screens/user/UserNotification.dart';
+import 'package:flutter_application_1/provider/getLat.dart';
 import 'package:flutter_application_1/provider/statusProvider.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -26,7 +27,6 @@ import 'Screens/user/UserProfile.dart';
 import 'Screens/user/UserSignup.dart';
 
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
   runApp(const MyApp());
@@ -44,7 +44,7 @@ class MyApp extends StatelessWidget {
             create: (context) => StatusProvider(),
           ),
           ChangeNotifierProvider(
-            create: (context) => NotificationProvider(),
+            create: (context) => GetLatlong(),
           )
         ],
         child: MaterialApp(
@@ -56,7 +56,7 @@ class MyApp extends StatelessWidget {
               // colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
               // useMaterial3: true,
             ),
-            home: AdminHome()),
+            home: UserLogin()),
       ),
       designSize: Size(390, 844),
     );

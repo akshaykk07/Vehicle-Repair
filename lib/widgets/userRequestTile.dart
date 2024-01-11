@@ -26,7 +26,14 @@ class UserRequestTile extends StatelessWidget {
         height: 122.h,
         width: double.infinity,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15).r, color: lightBlue),
+            gradient: const LinearGradient(
+              colors: [
+                Color(0xFF614385),
+                Color(0xFF516395),
+              ],
+            ),
+            borderRadius: BorderRadius.circular(15).r,
+            color: lightBlue),
         child: Row(children: [
           Expanded(
               child: SizedBox(
@@ -40,22 +47,22 @@ class UserRequestTile extends StatelessWidget {
                         text: name,
                         weight: FontWeight.w400,
                         size: 14,
-                        textcolor: customBalck),
+                        textcolor: white),
                     AppText(
                         text: date,
                         weight: FontWeight.w400,
                         size: 14,
-                        textcolor: customBalck),
+                        textcolor: white),
                     AppText(
                         text: time,
                         weight: FontWeight.w400,
                         size: 14,
-                        textcolor: customBalck),
+                        textcolor: white),
                     AppText(
                         text: issue,
                         weight: FontWeight.w400,
                         size: 14,
-                        textcolor: customBalck)
+                        textcolor: white)
                   ]),
             ),
           )),

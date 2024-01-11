@@ -7,20 +7,21 @@ import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class UserSignup extends StatefulWidget {
-  UserSignup({super.key});
+  const UserSignup({super.key});
 
   @override
   State<UserSignup> createState() => _UserSignupState();
 }
 
 class _UserSignupState extends State<UserSignup> {
-  @override
   final username = TextEditingController();
   final phone = TextEditingController();
-  var email = TextEditingController();
+  final email = TextEditingController();
   final password = TextEditingController();
+  final location = TextEditingController();
   final formkey = GlobalKey<FormState>();
 
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       extendBodyBehindAppBar: true,
@@ -119,6 +120,24 @@ class _UserSignupState extends State<UserSignup> {
                   const Align(
                     alignment: Alignment.bottomLeft,
                     child: AppText(
+                        text: "Enter Location",
+                        weight: FontWeight.w500,
+                        size: 16,
+                        textcolor: customBalck),
+                  ),
+                  CustomTextField(
+                      hint: "Enter Phone number",
+                      controller: location,
+                     // kebordtype: TextInputType.number,
+                      validator: (value) {
+                        if (value!.isEmpty && value==null) {
+                          // validation............
+                          return 'Please enter mobile number';
+                        }
+                      }),
+                  const Align(
+                    alignment: Alignment.bottomLeft,
+                    child: AppText(
                         text: "Enter your password",
                         weight: FontWeight.w500,
                         size: 16,
@@ -164,11 +183,13 @@ class _UserSignupState extends State<UserSignup> {
       'phone': phone.text,
       'email': email.text,
       'password': password.text,
+      'location': location.text,
       'status': 0
     });
     username.clear();
     phone.clear();
     email.clear();
     password.clear();
+    location.clear();
   }
 }

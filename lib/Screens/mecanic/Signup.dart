@@ -20,6 +20,7 @@ class _MechSignupState extends State<MechSignup> {
   final email = TextEditingController();
   final experience = TextEditingController();
   final workshop = TextEditingController();
+  final location = TextEditingController();
   final password = TextEditingController();
   final formkey = GlobalKey<FormState>();
 
@@ -138,14 +139,31 @@ class _MechSignupState extends State<MechSignup> {
                   const Align(
                     alignment: Alignment.bottomLeft,
                     child: AppText(
-                        text: "Enter your work shop name",
+                        text: "Enter your workshop name",
                         weight: FontWeight.w500,
                         size: 16,
                         textcolor: customBalck),
                   ),
                   CustomTextField(
-                      hint: "Enter your work shop name",
+                      hint: "Enter your workshop name",
                       controller: workshop,
+                      validator: (value) {
+                        if (value!.isEmpty || value == null) {
+                          // validator.........
+                          return "enter Location";
+                        }
+                      }),
+                  const Align(
+                    alignment: Alignment.bottomLeft,
+                    child: AppText(
+                        text: "Enter your Location",
+                        weight: FontWeight.w500,
+                        size: 16,
+                        textcolor: customBalck),
+                  ),
+                  CustomTextField(
+                      hint: "Enter your Location",
+                      controller: location,
                       validator: (value) {
                         if (value!.isEmpty || value == null) {
                           // validator.........
@@ -181,7 +199,7 @@ class _MechSignupState extends State<MechSignup> {
                         btntheam: customBlue,
                         textcolor: white,
                         click: () {
-                         // formkey.currentState!.validate();
+                          // formkey.currentState!.validate();
                           signUp();
                         }),
                   ),
@@ -199,6 +217,7 @@ class _MechSignupState extends State<MechSignup> {
       'email': email.text,
       'experience': experience.text,
       'workshop': workshop.text,
+      'location': location.text,
       'password': password.text,
       'status': 0
     });
@@ -208,5 +227,6 @@ class _MechSignupState extends State<MechSignup> {
     experience.clear();
     workshop.clear();
     password.clear();
+    location.clear();
   }
 }

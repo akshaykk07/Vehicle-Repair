@@ -1,34 +1,34 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/Screens/admin/notification.dart';
 import 'package:flutter_application_1/constants/color.dart';
-import 'package:flutter_application_1/provider/statusProvider.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_application_1/widgets/customButton.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:intl/intl.dart';
-import 'package:provider/provider.dart';
 
 import '../../widgets/customTextfield.dart';
 
-class AddNotification extends StatelessWidget {
-  AddNotification({super.key});
+class AddNotification extends StatefulWidget {
+  const AddNotification({super.key});
 
   @override
+  State<AddNotification> createState() => _AddNotificationState();
+}
+
+class _AddNotificationState extends State<AddNotification> {
   final formkey = GlobalKey<FormState>();
 
   final matter = TextEditingController();
 
   final content = TextEditingController();
 
-  final date = new DateTime.now();
+  final date = DateTime.now();
 
   TimeOfDay time = TimeOfDay.now();
 
+  @override
   Widget build(BuildContext context) {
-    final not = Provider.of<NotificationProvider>(context, listen: false);
     return Scaffold(
-     
       appBar: AppBar(
         leading: InkWell(
           onTap: () {
@@ -111,10 +111,8 @@ class AddNotification extends StatelessWidget {
                         textcolor: white,
                         click: () {
                           if (formkey.currentState!.validate()) {
-                            not.addNotifiaction(
-                                matter, content, time, date, context);
-                            matter.clear();
-                            content.clear();
+                            addNotifiaction();
+                            Navigator.pop(context);
                           }
                         }),
                   )
@@ -123,5 +121,14 @@ class AddNotification extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  Future addNotifiaction() async {
+    await FirebaseFirestore.instance.collection('Notification').add({
+      'heading': matter.text,
+      'content': content.text,
+      'time': time.format(context),
+      'date': DateFormat('dd/mm/yy').format(date)
+    });
   }
 }
