@@ -31,38 +31,31 @@ class MechanicStatusTile extends StatelessWidget {
           height: 123.h,
           width: double.infinity,
           decoration: BoxDecoration(
-              gradient: const LinearGradient(
-                colors: [
-                  Color(0xFF614385),
-                  Color(0xFF516395),
-                ],
-              ),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    blurRadius: 5.0,
+                    offset: const Offset(0.0, 3.0)),
+              ],
               borderRadius: BorderRadius.circular(15).r,
-              color: lightBlue),
+              border: Border.all(color: white),
+              color: white),
           child: Padding(
             padding:
                 const EdgeInsets.only(left: 10, right: 40, top: 10, bottom: 10)
                     .r,
             child:
                 Row(crossAxisAlignment: CrossAxisAlignment.center, children: [
-              SizedBox(
-                width: 80,
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Image.asset(
-                      image,
-                      width: 70.w,
-                      height: 70.h,
-                      fit: BoxFit.fill,
-                    ),
-                    AppText(
-                        text: name,
-                        weight: FontWeight.w400,
-                        size: 14,
-                        textcolor: white)
-                  ],
+              Container(
+                decoration: BoxDecoration(
+                  image: DecorationImage(
+                    image: NetworkImage(image),
+                  ),
+                  borderRadius: BorderRadius.circular(20),
+                  color: white,
                 ),
+                width: 90.w,
+                height: double.infinity,
               ),
               Expanded(
                 child: SizedBox(
@@ -70,15 +63,15 @@ class MechanicStatusTile extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: [
                       AppText(
+                          text: name,
+                          weight: FontWeight.w400,
+                          size: 15,
+                          textcolor: customBalck),
+                      AppText(
                           text: experience,
                           weight: FontWeight.w400,
                           size: 14,
-                          textcolor: white),
-                      AppText(
-                          text: work,
-                          weight: FontWeight.w400,
-                          size: 14,
-                          textcolor: white),
+                          textcolor: customBalck),
                       Card(
                         color: status == true ? Colors.green : Colors.red,
                         child: Padding(

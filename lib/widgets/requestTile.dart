@@ -12,7 +12,8 @@ class RequestTile extends StatelessWidget {
     required this.issue,
     required this.date,
     required this.time,
-    required this.place, required this.click,
+    required this.place,
+    required this.click,
   });
 
   final String image;
@@ -33,7 +34,15 @@ class RequestTile extends StatelessWidget {
           height: 120.h,
           width: double.infinity,
           decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(15).r, color: maincolor),
+              boxShadow: [
+                BoxShadow(
+                    color: Colors.black.withOpacity(0.3),
+                    blurRadius: 5.0,
+                    offset: const Offset(0.0, 3.0)),
+              ],
+              border: Border.all(color: customBalck),
+              borderRadius: BorderRadius.circular(15).r,
+              color: white),
           child: Padding(
             padding: const EdgeInsets.only(left: 20, right: 20).r,
             child: Row(children: [
@@ -42,7 +51,7 @@ class RequestTile extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Image.asset(
+                    Image.network(
                       image,
                       width: 60.w,
                       height: 60.h,

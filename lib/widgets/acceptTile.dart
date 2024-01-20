@@ -32,7 +32,15 @@ class AcceptTile extends StatelessWidget {
         height: 120.h,
         width: double.infinity,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15).r, color: maincolor),
+            boxShadow: [
+              BoxShadow(
+                  color: Colors.black.withOpacity(0.3),
+                  blurRadius: 5.0,
+                  offset: const Offset(0.0, 3.0)),
+            ],
+            border: Border.all(color: customBalck),
+            borderRadius: BorderRadius.circular(15).r,
+            color: white),
         child: Padding(
           padding: const EdgeInsets.only(left: 10, right: 10).r,
           child: Row(children: [
@@ -41,7 +49,7 @@ class AcceptTile extends StatelessWidget {
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  Image.asset(
+                  Image.network(
                     image,
                     width: 60.w,
                     height: 60.h,

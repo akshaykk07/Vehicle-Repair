@@ -11,11 +11,13 @@ class NotifiactionCard extends StatelessWidget {
     required this.title,
     required this.time,
     required this.date,
+    required this.heading,
   });
 
   final String title;
   final String time;
   final String date;
+  final String heading;
 
   @override
   Widget build(BuildContext context) {
@@ -24,16 +26,26 @@ class NotifiactionCard extends StatelessWidget {
       child: Card(
         color: white,
         shape: OutlineInputBorder(
-            borderSide: const BorderSide(color: customBalck),
+            borderSide: const BorderSide(color: offblack),
             borderRadius: BorderRadius.circular(12).r),
         child: Padding(
           padding: const EdgeInsets.all(10).r,
           child: Column(crossAxisAlignment: CrossAxisAlignment.end, children: [
-            AppText(
-                text: time,
-                weight: FontWeight.w400,
-                size: 12,
-                textcolor: customBalck),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                AppText(
+                    text: heading,
+                    weight: FontWeight.w400,
+                    size: 16,
+                    textcolor: customBalck),
+                AppText(
+                    text: time,
+                    weight: FontWeight.w400,
+                    size: 12,
+                    textcolor: customBalck),
+              ],
+            ),
             Padding(
               padding: const EdgeInsets.only(right: 10).r,
               child: Align(
@@ -43,7 +55,7 @@ class NotifiactionCard extends StatelessWidget {
                     style: GoogleFonts.poppins(
                         fontWeight: FontWeight.w400,
                         fontSize: 12.sp,
-                        color: Colors.black),
+                        color: Colors.grey),
                   )),
             ),
             AppText(

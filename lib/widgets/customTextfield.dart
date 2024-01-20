@@ -12,7 +12,8 @@ class CustomTextField extends StatelessWidget {
     required this.validator,
     this.obscure = false,
     this.fillcolor = white,
-    this.readonly = false, this.onChanged,
+    this.readonly = false,
+    this.onChanged,
   });
 
   final String hint;
@@ -34,7 +35,7 @@ class CustomTextField extends StatelessWidget {
         validator: validator,
         obscureText: obscure,
         readOnly: readonly,
-        onChanged:onChanged,
+        onChanged: onChanged,
         decoration: InputDecoration(
             fillColor: fillcolor,
             filled: true,
@@ -42,13 +43,13 @@ class CustomTextField extends StatelessWidget {
             contentPadding:
                 EdgeInsets.symmetric(vertical: 15.h, horizontal: 15.w),
             focusedBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: customGrey),
+                borderSide: const BorderSide(color: customBalck),
                 borderRadius: BorderRadius.circular(8).r),
             enabledBorder: OutlineInputBorder(
-                borderSide: const BorderSide(color: customGrey),
+                borderSide: const BorderSide(color: customBalck),
                 borderRadius: BorderRadius.circular(8).r),
             border: const OutlineInputBorder(
-                borderSide: BorderSide(color: customGrey))),
+                borderSide: BorderSide(color: customBalck))),
       ),
     );
   }

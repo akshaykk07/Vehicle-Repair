@@ -8,9 +8,11 @@ class ServiceTile extends StatelessWidget {
   const ServiceTile({
     super.key,
     required this.title,
+    required this.click,
   });
 
   final String title;
+  final void Function() click;
 
   @override
   Widget build(BuildContext context) {
@@ -20,7 +22,12 @@ class ServiceTile extends StatelessWidget {
         height: 80.h,
         width: double.infinity,
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15).r, color: maincolor),
+          boxShadow: [
+          BoxShadow(
+              color: Colors.black.withOpacity(0.3),
+              blurRadius: 5.0,
+              offset: const Offset(0.0, 3.0)),
+        ], borderRadius: BorderRadius.circular(15).r, color: white),
         child: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20).r,
           child:
@@ -33,9 +40,7 @@ class ServiceTile extends StatelessWidget {
                   textcolor: customBalck),
             ),
             InkWell(
-              onTap: () {
-                //delete...........
-              },
+              onTap: click,
               child: const Icon(
                 Icons.delete,
                 color: customBalck,

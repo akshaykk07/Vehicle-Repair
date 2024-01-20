@@ -18,9 +18,23 @@ class _UserSignupState extends State<UserSignup> {
   final phone = TextEditingController();
   final email = TextEditingController();
   final password = TextEditingController();
-  final location = TextEditingController();
   final formkey = GlobalKey<FormState>();
-
+  List<String> locationlist = [
+    'Alappuzha',
+    'Ernakulam',
+    'Idukki',
+    'Kannur',
+    'Kasaragod',
+    'Kollam',
+    'Kottayam',
+    'Kozhikode',
+    'Malappuram',
+    'Pathanamthitta',
+    'Thiruvananthapuram',
+    'Thrissur',
+    'Wayanad',
+  ];
+  String? selectedvalue;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -125,16 +139,33 @@ class _UserSignupState extends State<UserSignup> {
                         size: 16,
                         textcolor: customBalck),
                   ),
-                  CustomTextField(
-                      hint: "Enter Phone number",
-                      controller: location,
-                     // kebordtype: TextInputType.number,
-                      validator: (value) {
-                        if (value!.isEmpty && value==null) {
-                          // validation............
-                          return 'Please enter mobile number';
-                        }
-                      }),
+                  Container(
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(6).r,
+                      color: white,
+                    ),
+                    child: DropdownButton<String>(
+                        isExpanded: true,
+                        elevation: 0,
+                        dropdownColor: lightBlue,
+                        hint: const Text("Location"),
+                        underline: const SizedBox(),
+                        value: selectedvalue,
+                        items: locationlist.map((String value) {
+                          return DropdownMenuItem<String>(
+                              value: value, child: Text(value));
+                        }).toList(),
+                        onChanged: (newvalue) {
+                          setState(() {
+                            selectedvalue = newvalue;
+                            print(selectedvalue);
+                          });
+                        },
+                        padding: const EdgeInsets.symmetric(horizontal: 10)),
+                  ),
+                  SizedBox(
+                    height: 10.h,
+                  ),
                   const Align(
                     alignment: Alignment.bottomLeft,
                     child: AppText(
@@ -152,6 +183,9 @@ class _UserSignupState extends State<UserSignup> {
                           return "enter password"; // validation............
                         }
                       }),
+                      SizedBox(
+                    height: 10.h,
+                  ),
                   SizedBox(
                     height: 30.h,
                   ),
@@ -183,13 +217,13 @@ class _UserSignupState extends State<UserSignup> {
       'phone': phone.text,
       'email': email.text,
       'password': password.text,
-      'location': location.text,
-      'status': 0
+      'location': selectedvalue,
+      'status': 0,
+       "profileimage": "https://w1.pngwing.com/pngs/386/684/png-transparent-face-icon-user-icon-design-user-profile-share-icon-avatar-black-and-white-silhouette.png",
     });
     username.clear();
     phone.clear();
     email.clear();
     password.clear();
-    location.clear();
   }
 }

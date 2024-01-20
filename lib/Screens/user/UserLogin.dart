@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_1/Screens/user/Usermain.dart';
 import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_application_1/widgets/customButton.dart';
 import 'package:flutter_application_1/widgets/customTextfield.dart';
@@ -7,7 +8,6 @@ import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-import 'UserHome.dart';
 import 'UserSignup.dart';
 
 class UserLogin extends StatefulWidget {
@@ -26,6 +26,7 @@ class _UserLoginState extends State<UserLogin> {
   String? email;
   String? phone;
   String? location;
+  String? image;
 
   @override
   Widget build(BuildContext context) {
@@ -173,17 +174,19 @@ class _UserLoginState extends State<UserLogin> {
       email = user.docs[0]['email'];
       phone = user.docs[0]['phone'];
       location = user.docs[0]['location'];
+      image = user.docs[0]['profileimage'];
       SharedPreferences data = await SharedPreferences.getInstance();
       data.setString('id', id!);
       data.setString('name', name!);
       data.setString('email', email!);
       data.setString('phone', phone!);
       data.setString('location', location!);
+      data.setString('profile', image!);
       // ignore: use_build_context_synchronously
       Navigator.pushReplacement(
           context,
           MaterialPageRoute(
-            builder: (context) => UserHome(),
+            builder: (context) => UserMain(),
           ));
     } else {
       // ignore: use_build_context_synchronously

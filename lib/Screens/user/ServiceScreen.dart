@@ -1,191 +1,264 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_application_1/widgets/customButton.dart';
 import 'package:flutter_application_1/widgets/customTextfield.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
-
-import 'Rating.dart';
+import 'package:intl/intl.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ServiceScreen extends StatefulWidget {
-  ServiceScreen({super.key});
-
+  const ServiceScreen({super.key, required this.id});
+  final id;
   @override
   State<ServiceScreen> createState() => _ServiceScreenState();
 }
 
 class _ServiceScreenState extends State<ServiceScreen> {
-  final amount = TextEditingController();
   List<String> droplist = ["Fuel leaking", "Engin work", "Tyre alignment"];
-  List<String> droplist2 = []; // drop down button list...........................
-  String? selectedvalue; // drop down selected value..........................
-  final place = TextEditingController();
 
+  String? selectedvalue;
+  String? uid;
+  String? name;
+  String? mobile;
+  String? image;
+  String? mecanicname;
+  final formkey = GlobalKey<FormState>();
+  final date = DateTime.now();
+  TimeOfDay time = TimeOfDay.now();
+
+  @override
+  void initState() {
+    userData();
+    super.initState();
+  }
+
+  final place = TextEditingController();
+  final note = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: lightBlue,
-        leading: InkWell(
-          onTap: () {
-            Navigator.pop(context);
-          },
-          child: const Icon(
-            Icons.arrow_back_ios,
-            color: customBalck,
+        backgroundColor: whiteone,
+        appBar: AppBar(
+          backgroundColor: offblack,
+          leading: InkWell(
+            onTap: () {
+              Navigator.pop(context);
+            },
+            child: const Icon(
+              Icons.arrow_back_ios,
+              color: whiteone,
+            ),
           ),
+          title: const AppText(
+              text: "Needed service",
+              weight: FontWeight.w400,
+              size: 20,
+              textcolor: whiteone),
+          centerTitle: true,
         ),
-        title: const AppText(
-            text: "Needed service",
-            weight: FontWeight.w400,
-            size: 20,
-            textcolor: customBalck),
-        centerTitle: true,
-      ),
-      body: Padding(
-        padding:
-            const EdgeInsets.only(left: 45, right: 45, top: 10, bottom: 20).r,
-        child: SingleChildScrollView(
-          child:
-              Column(crossAxisAlignment: CrossAxisAlignment.center, children: [
-            Image.asset(
-              "assets/men3.png",
-              width: 150.w,
-              height: 150.h,
-              fit: BoxFit.fill,
-            ),
-            const AppText(
-                text: "Name",
-                weight: FontWeight.w400,
-                size: 16,
-                textcolor: customBalck),
-            SizedBox(
-              height: 15.h,
-            ),
-            const AppText(
-                text: "contact number",
-                weight: FontWeight.w400,
-                size: 14,
-                textcolor: customBalck),
-            SizedBox(
-              height: 5.h,
-            ),
-            const AppText(
-                text: "2+ year experience",
-                weight: FontWeight.w400,
-                size: 14,
-                textcolor: customBalck),
-            Card(
-              color: Colors.green,
-              child: Padding(
-                padding: EdgeInsets.symmetric(vertical: 5.h, horizontal: 10.w),
-                child: const AppText(
-                    text: "Available",
-                    weight: FontWeight.w400,
-                    size: 12,
-                    textcolor: white),
-              ),
-            ),
-            SizedBox(
-              height: 15.h,
-            ),
-            const Align(
-                alignment: Alignment.centerLeft,
-                child: AppText(
-                    text: "Add needed service",
-                    weight: FontWeight.w400,
-                    size: 16,
-                    textcolor: customBalck)),
-            SizedBox(
-              height: 10.h,
-            ),
-            Row(
-              children: [
-                Flexible(
-                  child: Card(
-                    color: lightBlue,
-                    child: DropdownButton<String>(
-                        isExpanded: true,
-                        elevation: 0,
-                        dropdownColor: lightBlue,
-                        hint: const Text("Issue"),
-                        underline: const SizedBox(),
-                        value: selectedvalue,
-                        items: droplist.map((String value) {
-                          return DropdownMenuItem<String>(
-                              value: value, child: Text(value));
-                        }).toList(),
-                        onChanged: (newvalue) {
-                          setState(() {
-                            selectedvalue = newvalue;
-                          });
+        body: Padding(
+          padding: const EdgeInsets.all(20),
+          child: SingleChildScrollView(
+            child: Form(
+              key: formkey,
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    FutureBuilder(
+                        future: FirebaseFirestore.instance
+                            .collection('mechanicSignUp')
+                            .doc(widget.id)
+                            .get(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return const Center(
+                                child: CircularProgressIndicator());
+                          }
+                          if (snapshot.hasError) {
+                            return Text("Error ${snapshot.error}");
+                          }
+                          final mname = snapshot.data!['username'];
+                          mecanicname = mname;
+                          return Column(
+                            children: [
+                              CircleAvatar(
+                                radius: 50.r,
+                                backgroundColor: whiteone,
+                                backgroundImage: NetworkImage(
+                                    snapshot.data!['profileimage'].toString()),
+                              ),
+                              SizedBox(
+                                height: 10.h,
+                              ),
+                              AppText(
+                                  text: snapshot.data!['username'],
+                                  weight: FontWeight.w400,
+                                  size: 16,
+                                  textcolor: customBalck),
+                              AppText(
+                                  text: snapshot.data!['email'],
+                                  weight: FontWeight.w400,
+                                  size: 14,
+                                  textcolor: customBalck),
+                              SizedBox(
+                                height: 40.h,
+                              ),
+                              Row(
+                                children: [
+                                  Expanded(
+                                    child: CustomButton1(
+                                        icon: Icons.call,
+                                        btnname: "call",
+                                        btntheam: Colors.greenAccent,
+                                        textcolor: offblack,
+                                        outline: true,
+                                        click: () {
+                                          launchUrl(Uri.parse(
+                                              'tel:+${snapshot.data!['phone']}'));
+                                        }),
+                                  ),
+                                  const SizedBox(
+                                    width: 15,
+                                  ),
+                                  Expanded(
+                                    child: CustomButton1(
+                                        icon: Icons.message_rounded,
+                                        btnname: "message",
+                                        btntheam: Colors.yellowAccent,
+                                        textcolor: offblack,
+                                        outline: true,
+                                        click: () {
+                                          launchUrl(Uri.parse(
+                                              'sms:+${snapshot.data!['phone']}'));
+                                        }),
+                                  )
+                                ],
+                              ),
+                            ],
+                          );
+                        }),
+                    SizedBox(
+                      height: 40.h,
+                    ),
+                    const Align(
+                      alignment: Alignment.centerLeft,
+                      child: AppText(
+                          text: "List your Needed Service here",
+                          weight: FontWeight.w500,
+                          size: 18,
+                          textcolor: offblack),
+                    ),
+                    SizedBox(
+                      height: 15.h,
+                    ),
+                    Container(
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(6).r,
+                        border: Border.all(color: offblack),
+                        color: white,
+                      ),
+                      child: DropdownButtonFormField(
+                        hint: const Text("Select Service"),
+                        padding: EdgeInsets.symmetric(horizontal: 15.h),
+                        items: droplist
+                            .map((e) => DropdownMenuItem(
+                                  value: e,
+                                  child: Text(e),
+                                ))
+                            .toList(),
+                        onChanged: (value) {
+                          selectedvalue = value as String;
                         },
-                        padding: const EdgeInsets.symmetric(horizontal: 10)),
-                  ),
-                ),
-                FloatingActionButton(
-                  onPressed: () {},
-                  shape: const CircleBorder(),
-                  mini: true,
-                  backgroundColor: customBalck,
-                  child: const Icon(
-                    Icons.add,
-                    color: white,
-                  ),
-                )
-              ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 7.h,
+                    ),
+                    CustomTextField(
+                        hint: "Enter your Exact place",
+                        fillcolor: white,
+                        controller: place,
+                        validator: (value) {
+                          if (value!.isNotEmpty && value == null) {
+                            return "Enter place";
+                          }
+                        }),
+                    TextFormField(
+                      controller: note,
+                      validator: (value) {
+                        if (value!.isNotEmpty && value == null) {
+                          return "Enter note";
+                        }
+                      },
+                      maxLines: 3,
+                      cursorColor: customBalck,
+                      decoration: InputDecoration(
+                          fillColor: white,
+                          filled: true,
+                          hintText: "Write here",
+                          enabledBorder: const OutlineInputBorder(
+                              borderSide: BorderSide(color: customBalck)),
+                          focusedBorder: OutlineInputBorder(
+                              borderSide: const BorderSide(color: customBalck),
+                              borderRadius: BorderRadius.circular(6).r),
+                          border: OutlineInputBorder(
+                              borderRadius: BorderRadius.circular(6).r,
+                              borderSide:
+                                  const BorderSide(color: customBalck))),
+                    ),
+                    SizedBox(
+                      height: 40.h,
+                    ),
+                    CustomButton(
+                        btnname: "Send Request",
+                        btntheam: offblack,
+                        textcolor: whiteone,
+                        click: () {
+                          if (formkey.currentState!.validate()) {
+                            sendRequest();
+                          }
+                        })
+                  ]),
             ),
-            SizedBox(
-              height: 10.h,
-            ),
-            Card(
-              color: lightBlue,
-              child: DropdownButton<String>(
-                  isExpanded: true,
-                  elevation: 0,
-                  dropdownColor: lightBlue,
-                  hint: const Text("Issue"),
-                  underline: const SizedBox(),
-                  value: selectedvalue,
-                  items: droplist2.map((String value) {
-                    return DropdownMenuItem<String>(
-                        value: value, child: Text(value));
-                  }).toList(),
-                  onChanged: (newvalue) {
-                    setState(() {
-                      selectedvalue = newvalue;
-                    });
-                  },
-                  padding: const EdgeInsets.symmetric(horizontal: 10)),
-            ),
-            Align(
-                alignment: Alignment.centerLeft,
-                child: Padding(
-                  padding: EdgeInsets.symmetric(vertical: 10.h),
-                  child: const AppText(
-                      text: "Place",
-                      weight: FontWeight.w400,
-                      size: 16,
-                      textcolor: customBalck),
-                )),
-            CustomTextField(
-                hint: "place",
-                fillcolor: lightBlue,
-                controller: place,
-                validator: (value) {}),
-            Padding(
-              padding: const EdgeInsets.only(left: 40, right: 40, top: 70).r,
-              child: CustomButton(
-                  btnname: "Request",
-                  btntheam: customBlue,
-                  textcolor: white,
-                  click: () {
-                    //Request Function..........
-                  }),
-            )
-          ]),
-        ),
-      ),
-    );
+          ),
+        ));
+  }
+
+  userData() async {
+    SharedPreferences data = await SharedPreferences.getInstance();
+    setState(() {
+      uid = data.getString('id');
+      name = data.getString('name');
+      mobile = data.getString('phone');
+      image = data.getString('profile');
+    });
+  }
+
+  sendRequest() async {
+    await FirebaseFirestore.instance.collection('userRequest').add({
+      'location': place.text.trim(),
+      'note': note.text.trim(),
+      'issue': selectedvalue,
+      'mid': widget.id,
+      'mname': mecanicname,
+      'uid': uid,
+      'phone': mobile,
+      'username': name,
+      'time': time.format(context),
+      'date': DateFormat('dd/mm/yy').format(date),
+      'status': 0,
+      'userprofile': image
+    }).then(
+        (value) => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
+              content: Text(" Request Succeffuly"),
+              behavior: SnackBarBehavior.floating,
+              backgroundColor: Colors.yellow,
+            )));
+    note.clear();
+    place.clear();
   }
 }

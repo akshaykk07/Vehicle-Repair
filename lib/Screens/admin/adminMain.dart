@@ -15,6 +15,7 @@ class AdminMain extends StatelessWidget {
       length: 2,
       child: Scaffold(
         appBar: AppBar(
+          automaticallyImplyLeading: false,
           title: CircleAvatar(
             radius: 30.r,
             backgroundImage: const AssetImage("assets/admin.png"),
@@ -23,6 +24,7 @@ class AdminMain extends StatelessWidget {
         backgroundColor: lightBlue,
         body: Padding(
           padding: const EdgeInsets.only(left: 20, right: 20).r,
+          
           child:
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
             Padding(
@@ -48,7 +50,7 @@ class AdminMain extends StatelessWidget {
                     ),
                   ],
                   indicator: BoxDecoration(
-                      borderRadius: BorderRadius.all(Radius.circular(10).r),
+                      borderRadius: BorderRadius.all(const Radius.circular(10).r),
                       // Creates border
                       color: tabcolor),
                   labelColor: white,
@@ -63,7 +65,7 @@ class AdminMain extends StatelessWidget {
             Expanded(
                 child: TabBarView(children: [
               Center(child: UserList()),
-              Center(child: MechanicList())
+              const Center(child:  MechanicList())
             ]))
           ]),
         ),

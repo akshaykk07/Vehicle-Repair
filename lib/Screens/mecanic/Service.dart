@@ -1,54 +1,92 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_application_1/widgets/customButton.dart';
 import 'package:flutter_application_1/widgets/customTextfield.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../widgets/serviceTile.dart';
 
-class Services extends StatelessWidget {
+class Services extends StatefulWidget {
   Services({super.key});
 
-  final service = TextEditingController();
+  @override
+  State<Services> createState() => _ServicesState();
+}
 
+class _ServicesState extends State<Services> {
+  final service = TextEditingController();
+  @override
+  void initState() {
+    getMechdata();
+    super.initState();
+  }
+
+  String? mid;
+  String? requesttile;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-          leading: Padding(
-            padding: const EdgeInsets.only(left: 20).r,
-            child: const Icon(
-              Icons.arrow_back_ios,
-              color: customBalck,
-            ),
-          ),
-          backgroundColor: maincolor,
-          title: AppText(
-              text: "Service",
-              weight: FontWeight.w400,
-              size: 20.sp,
-              textcolor: customBalck),
-          centerTitle: true),
-      body: Padding(
-          padding: const EdgeInsets.only(left: 28, right: 28, top: 20).r,
-          child: ListView.builder(
-            itemBuilder: (context, index) {
-              return const ServiceTile(
-                title: "Tyre puncture service ",
-              );
-            },
-            itemCount: 5,
-          )),
+      backgroundColor: whiteone,
+      body: StreamBuilder(
+          stream: FirebaseFirestore.instance
+              .collection('mechanicService')
+              .where('mid', isEqualTo: mid)
+              .snapshots(),
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            }
+            if (snapshot.hasError) {
+              return Text('Error${snapshot.error}');
+            }
+            final user = snapshot.data?.docs ?? [];
+            if (!snapshot.hasData) {
+              return const Center(
+                  child: AppText(
+                      text: "Loading...",
+                      weight: FontWeight.w500,
+                      size: 24,
+                      textcolor: customBalck));
+            }
+            if (snapshot.data!.docs.isEmpty) {
+              return Center(
+                  child: AppText(
+                      text: "No Service Added!",
+                      weight: FontWeight.w500,
+                      size: 24,
+                      textcolor: Colors.grey.shade400));
+            }
+            return Padding(
+                padding: const EdgeInsets.only(left: 28, right: 28, top: 20).r,
+                child: ListView.builder(
+                  itemBuilder: (context, index) {
+                    final rid = user[index].id;
+                    requesttile = rid;
+                    return ServiceTile(
+                      title: user[index]['services'],
+                      click: () {
+                        setState(() {
+                          user[index].reference.delete();
+                        });
+                      },
+                    );
+                  },
+                  itemCount: user.length,
+                ));
+          }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           add(context);
         },
-        shape: const CircleBorder(
-          side: BorderSide(color: customBalck),
+        shape: const CircleBorder(),
+        backgroundColor: offblack,
+        child: const Icon(
+          Icons.add,
+          color: whiteone,
         ),
-        backgroundColor: white,
-        child: const Icon(Icons.add),
       ),
     );
   }
@@ -63,7 +101,7 @@ class Services extends StatelessWidget {
             height: 330.h,
             width: 300.w,
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(15), color: maincolor),
+                borderRadius: BorderRadius.circular(15), color: whiteone),
             child: Padding(
               padding: const EdgeInsets.all(20).r,
               child: Padding(
@@ -89,9 +127,11 @@ class Services extends StatelessWidget {
                                 .r,
                         child: CustomButton(
                             btnname: "Add",
-                            btntheam: customBlue,
+                            btntheam: offblack,
                             textcolor: white,
-                            click: () {}),
+                            click: () {
+                              addService();
+                            }),
                       )
                     ]),
               ),
@@ -100,5 +140,24 @@ class Services extends StatelessWidget {
         );
       },
     );
+  }
+
+  addService() async {
+    await FirebaseFirestore.instance
+        .collection('mechanicService')
+        .add({'mid': mid, 'services': service.text.trim()});
+    service.clear();
+  }
+
+  deleteService() async {
+    await FirebaseFirestore.instance.collection('mechanicService').doc();
+    service.clear();
+  }
+
+  getMechdata() async {
+    SharedPreferences mecdata = await SharedPreferences.getInstance();
+    setState(() {
+      mid = mecdata.getString('id');
+    });
   }
 }

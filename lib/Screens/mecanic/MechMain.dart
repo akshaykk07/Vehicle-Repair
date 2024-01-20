@@ -3,67 +3,27 @@ import 'package:flutter_application_1/constants/color.dart';
 import 'package:flutter_application_1/widgets/apptext.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+
 import 'AcceptList.dart';
-import 'AdminNotification.dart';
-import 'Profile.dart';
+
 import 'RequestList.dart';
 
-class MechMain extends StatelessWidget {
+class MechMain extends StatefulWidget {
   const MechMain({super.key});
 
+  @override
+  State<MechMain> createState() => _MechMainState();
+}
+
+class _MechMainState extends State<MechMain> {
+ 
+ 
   @override
   Widget build(BuildContext context) {
     return DefaultTabController(
       length: 2,
       child: Scaffold(
-        appBar: AppBar(
-          automaticallyImplyLeading: false,
-          title: InkWell(
-            onTap: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => Profile(),
-                  ));
-            },
-            child: Image.asset(
-              "assets/men.png",
-              height: 60.h,
-              width: 60.w,
-              fit: BoxFit.fill,
-            ),
-          ),
-          actions: [
-            Padding(
-              padding: const EdgeInsets.only(right: 20).r,
-              child: InkWell(
-                onTap: () {
-                  Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                        builder: (context) => AdminNotification(),
-                      ));
-                },
-                child: Stack(
-                  children: [
-                    Icon(
-                      Icons.notifications,
-                      color: Colors.yellow[700],
-                      size: 30,
-                    ),
-                     Positioned( // notification Icon......
-                        left: 15.r,
-                        top: 5.r,
-                        child: CircleAvatar(
-                          radius: 6.r,
-                          backgroundColor: Colors.red,
-                        )),
-                  ],
-                ),
-              ),
-            )
-          ],
-        ),
+        backgroundColor: whiteone,
         body: Padding(
           padding: const EdgeInsets.only(left: 30, right: 30, top: 30).r,
           child:
@@ -73,8 +33,7 @@ class MechMain extends StatelessWidget {
               child: Container(
                 height: 50.h,
                 decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10).r,
-                    color: lightBlue),
+                    borderRadius: BorderRadius.circular(10).r, color: white),
                 child: TabBar(
                   // Tab Bar...........
                   tabs: const [
@@ -95,7 +54,7 @@ class MechMain extends StatelessWidget {
                       borderRadius:
                           BorderRadius.all(const Radius.circular(10).r),
                       // Creates border
-                      color: maincolor),
+                      color: Colors.grey[300]),
                   dividerColor: Colors.transparent,
                   labelColor: white,
                   unselectedLabelColor: customBalck,
@@ -117,4 +76,6 @@ class MechMain extends StatelessWidget {
       ),
     );
   }
+
+  
 }
