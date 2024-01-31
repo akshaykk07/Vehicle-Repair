@@ -28,7 +28,7 @@ class MechanicTile extends StatelessWidget {
         child: Container(
           height: 120.h,
           width: double.infinity,
-          color: white,
+          decoration: BoxDecoration(color: white,borderRadius: BorderRadius.circular(10)),
           child: Row(children: [
             Padding(
               padding: const EdgeInsets.only(left: 20, right: 20).r,

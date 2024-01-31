@@ -254,7 +254,10 @@ class _ServiceScreenState extends State<ServiceScreen> {
       'userprofile': image
     }).then(
         (value) => ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
-              content: Text(" Request Succeffuly"),
+              content: Text(
+                "Request Succeffuly",
+                style: TextStyle(color: customBalck),
+              ),
               behavior: SnackBarBehavior.floating,
               backgroundColor: Colors.yellow,
             )));

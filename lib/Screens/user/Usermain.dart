@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_1/Screens/user/UserHome.dart';
 import 'package:flutter_application_1/Screens/user/EditProfile.dart';
+import 'package:flutter_application_1/Screens/user/edit/hm.dart';
 import 'package:flutter_application_1/Screens/user/prrofile.dart';
 import 'package:flutter_application_1/constants/color.dart';
 
@@ -14,13 +15,17 @@ class UserMain extends StatefulWidget {
 class _UserMainState extends State<UserMain> {
   int Index = 0;
   List pages = [
-     UserHome(),
+    Screenone(),
+    UserHome(),
     const Center(child: Text("Payment Status")),
     const UsserProfile(),
   ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      // appBar: AppBar(
+      //   backgroundColor: offblack,
+      // ),
       body: pages[Index],
       bottomNavigationBar: BottomNavigationBar(
         items: const [
@@ -36,7 +41,7 @@ class _UserMainState extends State<UserMain> {
             Index = newIndex;
           });
         },
-        backgroundColor: customBalck,
+        backgroundColor: offblack,
         selectedItemColor: white,
         unselectedItemColor: Colors.grey,
       ),
